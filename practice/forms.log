@@ -1,0 +1,628 @@
+DEBUG:asciimatics.widgets.utilities:Updating: None
+DEBUG:asciimatics.widgets.utilities:Updating: TA
+DEBUG:asciimatics.widgets.utilities:Updating: TB
+DEBUG:asciimatics.widgets.utilities:Updating: TC
+DEBUG:asciimatics.widgets.utilities:Updating: TD
+DEBUG:asciimatics.widgets.utilities:Updating: RO
+DEBUG:asciimatics.widgets.utilities:Updating: None
+DEBUG:asciimatics.widgets.utilities:Updating: None
+DEBUG:asciimatics.widgets.utilities:Updating: Things
+DEBUG:asciimatics.widgets.utilities:Updating: CA
+DEBUG:asciimatics.widgets.utilities:Updating: CB
+DEBUG:asciimatics.widgets.utilities:Updating: CC
+DEBUG:asciimatics.widgets.utilities:Updating: DATE
+DEBUG:asciimatics.widgets.utilities:Updating: TIME
+DEBUG:asciimatics.widgets.utilities:Updating: PWD
+DEBUG:asciimatics.widgets.utilities:Updating: DD
+DEBUG:asciimatics.widgets.utilities:Updating: None
+DEBUG:asciimatics.widgets.utilities:Updating: None
+DEBUG:asciimatics.widgets.utilities:Updating: None
+DEBUG:asciimatics.widgets.utilities:Updating: None
+DEBUG:asciimatics.widgets.utilities:Updating: None
+DEBUG:asciimatics.widgets.utilities:Updating: TA
+DEBUG:asciimatics.widgets.utilities:Updating: TB
+DEBUG:asciimatics.widgets.utilities:Updating: TC
+DEBUG:asciimatics.widgets.utilities:Updating: TD
+DEBUG:asciimatics.widgets.utilities:Updating: RO
+DEBUG:asciimatics.widgets.utilities:Updating: None
+DEBUG:asciimatics.widgets.utilities:Updating: None
+DEBUG:asciimatics.widgets.utilities:Updating: Things
+DEBUG:asciimatics.widgets.utilities:Updating: CA
+DEBUG:asciimatics.widgets.utilities:Updating: CB
+DEBUG:asciimatics.widgets.utilities:Updating: CC
+DEBUG:asciimatics.widgets.utilities:Updating: DATE
+DEBUG:asciimatics.widgets.utilities:Updating: TIME
+DEBUG:asciimatics.widgets.utilities:Updating: PWD
+DEBUG:asciimatics.widgets.utilities:Updating: DD
+DEBUG:asciimatics.widgets.utilities:Updating: None
+DEBUG:asciimatics.widgets.utilities:Updating: None
+DEBUG:asciimatics.widgets.utilities:Updating: None
+DEBUG:asciimatics.widgets.utilities:Updating: None
+DEBUG:asciimatics.widgets.utilities:Cursor: 0,0
+DEBUG:asciimatics.widgets.utilities:Cursor: 0,0
+DEBUG:asciimatics.widgets.utilities:Cursor: 0,0
+DEBUG:asciimatics.widgets.utilities:Cursor: 0,0
+DEBUG:asciimatics.widgets.utilities:Cursor: 0,0
+DEBUG:asciimatics.widgets.utilities:Cursor: 0,0
+DEBUG:asciimatics.widgets.utilities:Cursor: 0,0
+DEBUG:asciimatics.widgets.utilities:Cursor: 0,0
+DEBUG:asciimatics.widgets.utilities:Cursor: 0,0
+DEBUG:asciimatics.screen:Processing key: 103
+DEBUG:asciimatics.screen:Returning key: 103
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -204
+DEBUG:asciimatics.widgets.utilities:Cursor: 0,0
+DEBUG:asciimatics.screen:Processing key: 103
+DEBUG:asciimatics.screen:Returning key: 103
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -204
+DEBUG:asciimatics.widgets.utilities:Cursor: 0,0
+DEBUG:asciimatics.screen:Processing key: 103
+DEBUG:asciimatics.screen:Returning key: 103
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -204
+DEBUG:asciimatics.widgets.utilities:Cursor: 0,0
+DEBUG:asciimatics.screen:Processing key: 103
+DEBUG:asciimatics.screen:Returning key: 103
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -204
+DEBUG:asciimatics.widgets.utilities:Cursor: 0,0
+DEBUG:asciimatics.widgets.utilities:Cursor: 0,0
+DEBUG:asciimatics.screen:Processing key: 103
+DEBUG:asciimatics.screen:Returning key: 103
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -204
+DEBUG:asciimatics.widgets.utilities:Cursor: 0,0
+DEBUG:asciimatics.screen:Processing key: 103
+DEBUG:asciimatics.screen:Returning key: 103
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -204
+DEBUG:asciimatics.widgets.utilities:Cursor: 0,0
+DEBUG:asciimatics.screen:Processing key: 103
+DEBUG:asciimatics.screen:Returning key: 103
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -204
+DEBUG:asciimatics.widgets.utilities:Cursor: 0,0
+DEBUG:asciimatics.screen:Processing key: 103
+DEBUG:asciimatics.screen:Returning key: 103
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -204
+DEBUG:asciimatics.widgets.utilities:Cursor: 0,0
+DEBUG:asciimatics.screen:Processing key: 103
+DEBUG:asciimatics.screen:Returning key: 103
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -204
+DEBUG:asciimatics.widgets.utilities:Cursor: 0,0
+DEBUG:asciimatics.screen:Processing key: 103
+DEBUG:asciimatics.screen:Returning key: 103
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -204
+DEBUG:asciimatics.widgets.utilities:Cursor: 0,0
+DEBUG:asciimatics.screen:Processing key: 103
+DEBUG:asciimatics.screen:Returning key: 103
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -204
+DEBUG:asciimatics.widgets.utilities:Cursor: 0,0
+DEBUG:asciimatics.screen:Processing key: 103
+DEBUG:asciimatics.screen:Returning key: 103
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -204
+DEBUG:asciimatics.widgets.utilities:Cursor: 0,0
+DEBUG:asciimatics.screen:Processing key: 103
+DEBUG:asciimatics.screen:Returning key: 103
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -204
+DEBUG:asciimatics.widgets.utilities:Cursor: 0,0
+DEBUG:asciimatics.screen:Processing key: 103
+DEBUG:asciimatics.screen:Returning key: 103
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -204
+DEBUG:asciimatics.widgets.utilities:Cursor: 0,0
+DEBUG:asciimatics.screen:Processing key: 103
+DEBUG:asciimatics.screen:Returning key: 103
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -204
+DEBUG:asciimatics.widgets.utilities:Cursor: 0,0
+DEBUG:asciimatics.screen:Processing key: 103
+DEBUG:asciimatics.screen:Returning key: 103
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -204
+DEBUG:asciimatics.widgets.utilities:Cursor: 0,0
+DEBUG:asciimatics.screen:Processing key: 103
+DEBUG:asciimatics.screen:Returning key: 103
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -204
+DEBUG:asciimatics.widgets.utilities:Cursor: 0,0
+DEBUG:asciimatics.screen:Processing key: 103
+DEBUG:asciimatics.screen:Returning key: 103
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -204
+DEBUG:asciimatics.widgets.utilities:Cursor: 0,0
+DEBUG:asciimatics.screen:Processing key: 103
+DEBUG:asciimatics.screen:Returning key: 103
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -204
+DEBUG:asciimatics.widgets.utilities:Cursor: 0,0
+DEBUG:asciimatics.screen:Processing key: 103
+DEBUG:asciimatics.screen:Returning key: 103
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -204
+DEBUG:asciimatics.widgets.utilities:Cursor: 0,0
+DEBUG:asciimatics.screen:Processing key: 103
+DEBUG:asciimatics.screen:Returning key: 103
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -204
+DEBUG:asciimatics.widgets.utilities:Cursor: 0,0
+DEBUG:asciimatics.screen:Processing key: 103
+DEBUG:asciimatics.screen:Returning key: 103
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -204
+DEBUG:asciimatics.widgets.utilities:Cursor: 0,0
+DEBUG:asciimatics.screen:Processing key: 103
+DEBUG:asciimatics.screen:Returning key: 103
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -204
+DEBUG:asciimatics.widgets.utilities:Cursor: 0,0
+DEBUG:asciimatics.screen:Processing key: 103
+DEBUG:asciimatics.screen:Returning key: 103
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -204
+DEBUG:asciimatics.widgets.utilities:Cursor: 0,0
+DEBUG:asciimatics.screen:Processing key: 103
+DEBUG:asciimatics.screen:Returning key: 103
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -204
+DEBUG:asciimatics.widgets.utilities:Cursor: 0,0
+DEBUG:asciimatics.screen:Processing key: 103
+DEBUG:asciimatics.screen:Returning key: 103
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -204
+DEBUG:asciimatics.widgets.utilities:Cursor: 0,0
+DEBUG:asciimatics.screen:Processing key: 103
+DEBUG:asciimatics.screen:Returning key: 103
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -204
+DEBUG:asciimatics.widgets.utilities:Cursor: 0,0
+DEBUG:asciimatics.screen:Processing key: 102
+DEBUG:asciimatics.screen:Returning key: 102
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -206
+DEBUG:asciimatics.widgets.utilities:Cursor: 0,0
+DEBUG:asciimatics.widgets.utilities:Cursor: 0,0
+DEBUG:asciimatics.widgets.utilities:Cursor: 0,0
+DEBUG:asciimatics.screen:Processing key: 102
+DEBUG:asciimatics.screen:Returning key: 102
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -206
+DEBUG:asciimatics.widgets.utilities:Cursor: 0,0
+DEBUG:asciimatics.screen:Processing key: 102
+DEBUG:asciimatics.screen:Returning key: 102
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -206
+DEBUG:asciimatics.widgets.utilities:Cursor: 0,0
+DEBUG:asciimatics.screen:Processing key: 102
+DEBUG:asciimatics.screen:Returning key: 102
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -206
+DEBUG:asciimatics.widgets.utilities:Cursor: 0,0
+DEBUG:asciimatics.screen:Processing key: 102
+DEBUG:asciimatics.screen:Returning key: 102
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -206
+DEBUG:asciimatics.widgets.utilities:Cursor: 0,0
+DEBUG:asciimatics.screen:Processing key: 102
+DEBUG:asciimatics.screen:Returning key: 102
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -206
+DEBUG:asciimatics.widgets.utilities:Cursor: 0,0
+DEBUG:asciimatics.screen:Processing key: 102
+DEBUG:asciimatics.screen:Returning key: 102
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -206
+DEBUG:asciimatics.widgets.utilities:Cursor: 0,0
+DEBUG:asciimatics.screen:Processing key: 102
+DEBUG:asciimatics.screen:Returning key: 102
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -206
+DEBUG:asciimatics.widgets.utilities:Cursor: 0,0
+DEBUG:asciimatics.screen:Processing key: 102
+DEBUG:asciimatics.screen:Returning key: 102
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -206
+DEBUG:asciimatics.widgets.utilities:Cursor: 0,0
+DEBUG:asciimatics.screen:Processing key: 102
+DEBUG:asciimatics.screen:Returning key: 102
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -206
+DEBUG:asciimatics.widgets.utilities:Cursor: 0,0
+DEBUG:asciimatics.screen:Processing key: 102
+DEBUG:asciimatics.screen:Returning key: 102
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -206
+DEBUG:asciimatics.widgets.utilities:Cursor: 0,0
+DEBUG:asciimatics.screen:Processing key: 9
+DEBUG:asciimatics.screen:Returning key: 9
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -301
+DEBUG:asciimatics.screen:Processing key: 9
+DEBUG:asciimatics.screen:Returning key: 9
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -301
+DEBUG:asciimatics.screen:Processing key: 9
+DEBUG:asciimatics.screen:Returning key: 9
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -301
+DEBUG:asciimatics.screen:Processing key: 9
+DEBUG:asciimatics.screen:Returning key: 9
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -301
+DEBUG:asciimatics.screen:Processing key: 9
+DEBUG:asciimatics.screen:Returning key: 9
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -301
+DEBUG:asciimatics.screen:Processing key: 9
+DEBUG:asciimatics.screen:Returning key: 9
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -301
+DEBUG:asciimatics.screen:Processing key: 9
+DEBUG:asciimatics.screen:Returning key: 9
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -301
+DEBUG:asciimatics.screen:Processing key: 9
+DEBUG:asciimatics.screen:Returning key: 9
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -301
+DEBUG:asciimatics.screen:Processing key: 9
+DEBUG:asciimatics.screen:Returning key: 9
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -301
+DEBUG:asciimatics.screen:Processing key: 9
+DEBUG:asciimatics.screen:Returning key: 9
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -301
+DEBUG:asciimatics.screen:Processing key: 9
+DEBUG:asciimatics.screen:Returning key: 9
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -301
+DEBUG:asciimatics.screen:Processing key: 9
+DEBUG:asciimatics.screen:Returning key: 9
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -301
+DEBUG:asciimatics.screen:Processing key: 9
+DEBUG:asciimatics.screen:Returning key: 9
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -301
+DEBUG:asciimatics.screen:Processing key: 9
+DEBUG:asciimatics.screen:Returning key: 9
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -301
+DEBUG:asciimatics.screen:Processing key: 9
+DEBUG:asciimatics.screen:Returning key: 9
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -301
+DEBUG:asciimatics.screen:Processing key: 104
+DEBUG:asciimatics.screen:Returning key: 104
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -203
+DEBUG:asciimatics.screen:Processing key: a
+DEBUG:asciimatics.screen:Returning key: a
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: 10
+DEBUG:asciimatics.widgets.utilities:Updating: message
+DEBUG:asciimatics.widgets.utilities:Updating: None
+DEBUG:asciimatics.widgets.utilities:Updating: message
+DEBUG:asciimatics.widgets.utilities:Updating: None
+DEBUG:asciimatics.screen:Processing key: 103
+DEBUG:asciimatics.screen:Returning key: 103
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -204
+DEBUG:asciimatics.screen:Processing key: 103
+DEBUG:asciimatics.screen:Returning key: 103
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -204
+DEBUG:asciimatics.screen:Processing key: 102
+DEBUG:asciimatics.screen:Returning key: 102
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -206
+DEBUG:asciimatics.screen:Processing key: a
+DEBUG:asciimatics.screen:Returning key: a
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: 10
+DEBUG:asciimatics.screen:Processing key: 9
+DEBUG:asciimatics.screen:Returning key: 9
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -301
+DEBUG:asciimatics.screen:Processing key: 9
+DEBUG:asciimatics.screen:Returning key: 9
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -301
+DEBUG:asciimatics.widgets.utilities:Cursor: 0,0
+DEBUG:asciimatics.widgets.utilities:Cursor: 0,0
+DEBUG:asciimatics.widgets.utilities:Cursor: 0,0
+DEBUG:asciimatics.widgets.utilities:Cursor: 0,0
+DEBUG:asciimatics.screen:Processing key: 9
+DEBUG:asciimatics.screen:Returning key: 9
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -301
+DEBUG:asciimatics.screen:Processing key: 9
+DEBUG:asciimatics.screen:Returning key: 9
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -301
+DEBUG:asciimatics.screen:Processing key: 9
+DEBUG:asciimatics.screen:Returning key: 9
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -301
+DEBUG:asciimatics.screen:Processing key: 9
+DEBUG:asciimatics.screen:Returning key: 9
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -301
+DEBUG:asciimatics.screen:Processing key: 9
+DEBUG:asciimatics.screen:Returning key: 9
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -301
+DEBUG:asciimatics.screen:Processing key: 9
+DEBUG:asciimatics.screen:Returning key: 9
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -301
+DEBUG:asciimatics.screen:Processing key: 9
+DEBUG:asciimatics.screen:Returning key: 9
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -301
+DEBUG:asciimatics.screen:Processing key: 9
+DEBUG:asciimatics.screen:Returning key: 9
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -301
+DEBUG:asciimatics.screen:Processing key: 9
+DEBUG:asciimatics.screen:Returning key: 9
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -301
+DEBUG:asciimatics.screen:Processing key: 9
+DEBUG:asciimatics.screen:Returning key: 9
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -301
+DEBUG:asciimatics.screen:Processing key: 9
+DEBUG:asciimatics.screen:Returning key: 9
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -301
+DEBUG:asciimatics.screen:Processing key: 9
+DEBUG:asciimatics.screen:Returning key: 9
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -301
+DEBUG:asciimatics.screen:Processing key: 9
+DEBUG:asciimatics.screen:Returning key: 9
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -301
+DEBUG:asciimatics.screen:Processing key: 20
+DEBUG:asciimatics.screen:Returning key: 20
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: 32
+DEBUG:asciimatics.widgets.utilities:Updating: None
+DEBUG:asciimatics.widgets.utilities:Updating: TA
+DEBUG:asciimatics.widgets.utilities:Updating: TB
+DEBUG:asciimatics.widgets.utilities:Updating: TC
+DEBUG:asciimatics.widgets.utilities:Updating: TD
+DEBUG:asciimatics.widgets.utilities:Updating: RO
+DEBUG:asciimatics.widgets.utilities:Updating: None
+DEBUG:asciimatics.widgets.utilities:Updating: None
+DEBUG:asciimatics.widgets.utilities:Updating: Things
+DEBUG:asciimatics.widgets.utilities:Updating: CA
+DEBUG:asciimatics.widgets.utilities:Updating: CB
+DEBUG:asciimatics.widgets.utilities:Updating: CC
+DEBUG:asciimatics.widgets.utilities:Updating: DATE
+DEBUG:asciimatics.widgets.utilities:Updating: TIME
+DEBUG:asciimatics.widgets.utilities:Updating: PWD
+DEBUG:asciimatics.widgets.utilities:Updating: DD
+DEBUG:asciimatics.widgets.utilities:Updating: None
+DEBUG:asciimatics.widgets.utilities:Updating: None
+DEBUG:asciimatics.widgets.utilities:Updating: None
+DEBUG:asciimatics.widgets.utilities:Updating: None
+DEBUG:asciimatics.widgets.utilities:Updating: None
+DEBUG:asciimatics.widgets.utilities:Updating: TA
+DEBUG:asciimatics.widgets.utilities:Updating: TB
+DEBUG:asciimatics.widgets.utilities:Updating: TC
+DEBUG:asciimatics.widgets.utilities:Updating: TD
+DEBUG:asciimatics.widgets.utilities:Updating: RO
+DEBUG:asciimatics.widgets.utilities:Updating: None
+DEBUG:asciimatics.widgets.utilities:Updating: None
+DEBUG:asciimatics.widgets.utilities:Updating: Things
+DEBUG:asciimatics.widgets.utilities:Updating: CA
+DEBUG:asciimatics.widgets.utilities:Updating: CB
+DEBUG:asciimatics.widgets.utilities:Updating: CC
+DEBUG:asciimatics.widgets.utilities:Updating: DATE
+DEBUG:asciimatics.widgets.utilities:Updating: TIME
+DEBUG:asciimatics.widgets.utilities:Updating: PWD
+DEBUG:asciimatics.widgets.utilities:Updating: DD
+DEBUG:asciimatics.widgets.utilities:Updating: None
+DEBUG:asciimatics.widgets.utilities:Updating: None
+DEBUG:asciimatics.widgets.utilities:Updating: None
+DEBUG:asciimatics.widgets.utilities:Updating: None
+DEBUG:asciimatics.widgets.utilities:Updating: None
+DEBUG:asciimatics.widgets.utilities:Updating: TA
+DEBUG:asciimatics.widgets.utilities:Updating: TB
+DEBUG:asciimatics.widgets.utilities:Updating: TC
+DEBUG:asciimatics.widgets.utilities:Updating: TD
+DEBUG:asciimatics.widgets.utilities:Updating: RO
+DEBUG:asciimatics.widgets.utilities:Updating: None
+DEBUG:asciimatics.widgets.utilities:Updating: None
+DEBUG:asciimatics.widgets.utilities:Updating: Things
+DEBUG:asciimatics.widgets.utilities:Updating: CA
+DEBUG:asciimatics.widgets.utilities:Updating: CB
+DEBUG:asciimatics.widgets.utilities:Updating: CC
+DEBUG:asciimatics.widgets.utilities:Updating: DATE
+DEBUG:asciimatics.widgets.utilities:Updating: TIME
+DEBUG:asciimatics.widgets.utilities:Updating: PWD
+DEBUG:asciimatics.widgets.utilities:Updating: DD
+DEBUG:asciimatics.widgets.utilities:Updating: None
+DEBUG:asciimatics.widgets.utilities:Updating: None
+DEBUG:asciimatics.widgets.utilities:Updating: None
+DEBUG:asciimatics.widgets.utilities:Updating: None
+DEBUG:asciimatics.widgets.utilities:Updating: None
+DEBUG:asciimatics.widgets.utilities:Updating: TA
+DEBUG:asciimatics.widgets.utilities:Updating: TB
+DEBUG:asciimatics.widgets.utilities:Updating: TC
+DEBUG:asciimatics.widgets.utilities:Updating: TD
+DEBUG:asciimatics.widgets.utilities:Updating: RO
+DEBUG:asciimatics.widgets.utilities:Updating: None
+DEBUG:asciimatics.widgets.utilities:Updating: None
+DEBUG:asciimatics.widgets.utilities:Updating: Things
+DEBUG:asciimatics.widgets.utilities:Updating: CA
+DEBUG:asciimatics.widgets.utilities:Updating: CB
+DEBUG:asciimatics.widgets.utilities:Updating: CC
+DEBUG:asciimatics.widgets.utilities:Updating: DATE
+DEBUG:asciimatics.widgets.utilities:Updating: TIME
+DEBUG:asciimatics.widgets.utilities:Updating: PWD
+DEBUG:asciimatics.widgets.utilities:Updating: DD
+DEBUG:asciimatics.widgets.utilities:Updating: None
+DEBUG:asciimatics.widgets.utilities:Updating: None
+DEBUG:asciimatics.widgets.utilities:Updating: None
+DEBUG:asciimatics.widgets.utilities:Updating: None
+DEBUG:asciimatics.widgets.utilities:Cursor: 0,0
+DEBUG:asciimatics.widgets.utilities:Cursor: 0,0
+DEBUG:asciimatics.widgets.utilities:Cursor: 0,0
+DEBUG:asciimatics.widgets.utilities:Cursor: 0,0
+DEBUG:asciimatics.widgets.utilities:Cursor: 0,0
+DEBUG:asciimatics.screen:Processing key: 9
+DEBUG:asciimatics.screen:Returning key: 9
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -301
+DEBUG:asciimatics.screen:Processing key: 9
+DEBUG:asciimatics.screen:Returning key: 9
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -301
+DEBUG:asciimatics.screen:Processing key: 9
+DEBUG:asciimatics.screen:Returning key: 9
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -301
+DEBUG:asciimatics.screen:Processing key: 9
+DEBUG:asciimatics.screen:Returning key: 9
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -301
+DEBUG:asciimatics.screen:Processing key: 9
+DEBUG:asciimatics.screen:Returning key: 9
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -301
+DEBUG:asciimatics.screen:Processing key: 9
+DEBUG:asciimatics.screen:Returning key: 9
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -301
+DEBUG:asciimatics.screen:Processing key: 9
+DEBUG:asciimatics.screen:Returning key: 9
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -301
+DEBUG:asciimatics.screen:Processing key: 9
+DEBUG:asciimatics.screen:Returning key: 9
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -301
+DEBUG:asciimatics.screen:Processing key: 9
+DEBUG:asciimatics.screen:Returning key: 9
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -301
+DEBUG:asciimatics.screen:Processing key: 9
+DEBUG:asciimatics.screen:Returning key: 9
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -301
+DEBUG:asciimatics.screen:Processing key: 9
+DEBUG:asciimatics.screen:Returning key: 9
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -301
+DEBUG:asciimatics.screen:Processing key: 9
+DEBUG:asciimatics.screen:Returning key: 9
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -301
+DEBUG:asciimatics.screen:Processing key: 9
+DEBUG:asciimatics.screen:Returning key: 9
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -301
+DEBUG:asciimatics.screen:Processing key: 9
+DEBUG:asciimatics.screen:Returning key: 9
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -301
+DEBUG:asciimatics.screen:Processing key: 9
+DEBUG:asciimatics.screen:Returning key: 9
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -301
+DEBUG:asciimatics.screen:Processing key: 9
+DEBUG:asciimatics.screen:Returning key: 9
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -301
+DEBUG:asciimatics.widgets.utilities:Cursor: 0,0
+DEBUG:asciimatics.screen:Processing key: 9
+DEBUG:asciimatics.screen:Returning key: 9
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -301
+DEBUG:asciimatics.screen:Processing key: 9
+DEBUG:asciimatics.screen:Returning key: 9
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -301
+DEBUG:asciimatics.screen:Processing key: 9
+DEBUG:asciimatics.screen:Returning key: 9
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -301
+DEBUG:asciimatics.screen:Processing key: 9
+DEBUG:asciimatics.screen:Returning key: 9
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -301
+DEBUG:asciimatics.screen:Processing key: 9
+DEBUG:asciimatics.screen:Returning key: 9
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -301
+DEBUG:asciimatics.screen:Processing key: 9
+DEBUG:asciimatics.screen:Returning key: 9
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -301
+DEBUG:asciimatics.screen:Processing key: 9
+DEBUG:asciimatics.screen:Returning key: 9
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -301
+DEBUG:asciimatics.screen:Processing key: 9
+DEBUG:asciimatics.screen:Returning key: 9
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -301
+DEBUG:asciimatics.screen:Processing key: 9
+DEBUG:asciimatics.screen:Returning key: 9
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -301
+DEBUG:asciimatics.screen:Processing key: 9
+DEBUG:asciimatics.screen:Returning key: 9
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -301
+DEBUG:asciimatics.screen:Processing key: 9
+DEBUG:asciimatics.screen:Returning key: 9
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -301
+DEBUG:asciimatics.screen:Processing key: 9
+DEBUG:asciimatics.screen:Returning key: 9
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -301
+DEBUG:asciimatics.screen:Processing key: 9
+DEBUG:asciimatics.screen:Returning key: 9
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -301
+DEBUG:asciimatics.screen:Processing key: 9
+DEBUG:asciimatics.screen:Returning key: 9
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -301
+DEBUG:asciimatics.screen:Processing key: 9
+DEBUG:asciimatics.screen:Returning key: 9
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -301
+DEBUG:asciimatics.screen:Processing key: 9
+DEBUG:asciimatics.screen:Returning key: 9
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -301
+DEBUG:asciimatics.widgets.utilities:Cursor: 0,0
+DEBUG:asciimatics.screen:Processing key: 105
+DEBUG:asciimatics.screen:Returning key: 105
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -205
+DEBUG:asciimatics.widgets.utilities:Cursor: 0,0
+DEBUG:asciimatics.widgets.utilities:Cursor: 0,0
+DEBUG:asciimatics.widgets.utilities:Cursor: 0,0
+DEBUG:asciimatics.screen:Processing key: 103
+DEBUG:asciimatics.screen:Returning key: 103
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -204
+DEBUG:asciimatics.widgets.utilities:Cursor: 0,0
+DEBUG:asciimatics.widgets.utilities:Cursor: 0,0
+DEBUG:asciimatics.screen:Processing key: 105
+DEBUG:asciimatics.screen:Returning key: 105
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -205
+DEBUG:asciimatics.widgets.utilities:Cursor: 0,1
+DEBUG:asciimatics.widgets.utilities:Cursor: 0,1
+DEBUG:asciimatics.screen:Processing key: 9
+DEBUG:asciimatics.screen:Returning key: 9
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -301
+DEBUG:asciimatics.screen:Processing key: 9
+DEBUG:asciimatics.screen:Returning key: 9
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -301
+DEBUG:asciimatics.screen:Processing key: 9
+DEBUG:asciimatics.screen:Returning key: 9
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -301
+DEBUG:asciimatics.screen:Processing key: 9
+DEBUG:asciimatics.screen:Returning key: 9
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -301
+DEBUG:asciimatics.screen:Processing key: 9
+DEBUG:asciimatics.screen:Returning key: 9
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -301
+DEBUG:asciimatics.screen:Processing key: 9
+DEBUG:asciimatics.screen:Returning key: 9
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -301
+DEBUG:asciimatics.screen:Processing key: 9
+DEBUG:asciimatics.screen:Returning key: 9
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -301
+DEBUG:asciimatics.screen:Processing key: 9
+DEBUG:asciimatics.screen:Returning key: 9
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -301
+DEBUG:asciimatics.screen:Processing key: 9
+DEBUG:asciimatics.screen:Returning key: 9
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -301
+DEBUG:asciimatics.screen:Processing key: 9
+DEBUG:asciimatics.screen:Returning key: 9
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -301
+DEBUG:asciimatics.screen:Processing key: 9
+DEBUG:asciimatics.screen:Returning key: 9
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -301
+DEBUG:asciimatics.screen:Processing key: 9
+DEBUG:asciimatics.screen:Returning key: 9
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -301
+DEBUG:asciimatics.screen:Processing key: 9
+DEBUG:asciimatics.screen:Returning key: 9
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -301
+DEBUG:asciimatics.screen:Processing key: 9
+DEBUG:asciimatics.screen:Returning key: 9
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -301
+DEBUG:asciimatics.screen:Processing key: 9
+DEBUG:asciimatics.screen:Returning key: 9
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -301
+DEBUG:asciimatics.screen:Processing key: 9
+DEBUG:asciimatics.screen:Returning key: 9
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -301
+DEBUG:asciimatics.widgets.utilities:Cursor: 0,1
+DEBUG:asciimatics.screen:Processing key: 9
+DEBUG:asciimatics.screen:Returning key: 9
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -301
+DEBUG:asciimatics.screen:Processing key: 9
+DEBUG:asciimatics.screen:Returning key: 9
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -301
+DEBUG:asciimatics.screen:Processing key: 9
+DEBUG:asciimatics.screen:Returning key: 9
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -301
+DEBUG:asciimatics.screen:Processing key: 9
+DEBUG:asciimatics.screen:Returning key: 9
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -301
+DEBUG:asciimatics.screen:Processing key: 9
+DEBUG:asciimatics.screen:Returning key: 9
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -301
+DEBUG:asciimatics.screen:Processing key: 9
+DEBUG:asciimatics.screen:Returning key: 9
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -301
+DEBUG:asciimatics.screen:Processing key: 9
+DEBUG:asciimatics.screen:Returning key: 9
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -301
+DEBUG:asciimatics.screen:Processing key: 9
+DEBUG:asciimatics.screen:Returning key: 9
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -301
+DEBUG:asciimatics.screen:Processing key: 9
+DEBUG:asciimatics.screen:Returning key: 9
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -301
+DEBUG:asciimatics.screen:Processing key: 9
+DEBUG:asciimatics.screen:Returning key: 9
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -301
+DEBUG:asciimatics.screen:Processing key: 9
+DEBUG:asciimatics.screen:Returning key: 9
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -301
+DEBUG:asciimatics.screen:Processing key: 9
+DEBUG:asciimatics.screen:Returning key: 9
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -301
+DEBUG:asciimatics.screen:Processing key: 9
+DEBUG:asciimatics.screen:Returning key: 9
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -301
+DEBUG:asciimatics.screen:Processing key: 9
+DEBUG:asciimatics.screen:Returning key: 9
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -301
+DEBUG:asciimatics.screen:Processing key: 105
+DEBUG:asciimatics.screen:Returning key: 105
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: -205
+DEBUG:asciimatics.screen:Processing key: a
+DEBUG:asciimatics.screen:Returning key: a
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: 10
+DEBUG:asciimatics.widgets.utilities:Updating: message
+DEBUG:asciimatics.widgets.utilities:Updating: None
+DEBUG:asciimatics.widgets.utilities:Updating: None
+DEBUG:asciimatics.widgets.utilities:Updating: message
+DEBUG:asciimatics.widgets.utilities:Updating: None
+DEBUG:asciimatics.widgets.utilities:Updating: None
+DEBUG:asciimatics.screen:Processing key: a
+DEBUG:asciimatics.screen:Returning key: a
+DEBUG:asciimatics.widgets.utilities:New event: KeyboardEvent: 10
