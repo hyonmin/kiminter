@@ -4,7 +4,7 @@ import tkinter.messagebox
 from tkinter import ttk
 import tkinter.ttk as ttk
 from tkcalendar import Calendar
-import random
+from random import random
 from datetime import datetime, timedelta
 from PIL import ImageTk, Image
 import os
@@ -196,11 +196,15 @@ class window2:
 #=======================================================================frames=======================================
         #Frame for a treeview
         self.frame_weight = LabelFrame(self.master, text=" List", font=f2, relief="flat")
-        self.frame_weight.pack(side=LEFT, padx=(15,0), pady=15)
+        self.frame_weight.pack(side="left", padx=(15,0), pady=15)
 
         #Frame for buttons
         self.frame_buttons = LabelFrame(self.master, text="  Machines  ", font=f2, padx=20, pady=40)
         self.frame_buttons.pack(side='right', padx=(0,30))
+
+        #Frame for labels
+        self.frame_labels = LabelFrame(self.master, text="  Informations  ", font=f2, padx=20, pady=40)
+        self.frame_labels.pack(side='right', padx=(0,30))
 
 #=====================================================================buttons for machines==========================
         # buttons for machines
@@ -415,21 +419,26 @@ class window2:
         # to put the treeview, 'pack' function should be after all components of the treeview.
         self.tree_weight.pack(padx=2, pady=2)
 
-        self.tree_weight.insert('', 'end', values=(1,1,1), tags = ('odd',))
-        self.tree_weight.insert('', 'end', values=(2,2,2), tags = ('even',))
-        self.tree_weight.insert('', 'end', values=(1,1,1), tags = ('odd',))
-        self.tree_weight.insert('', 'end', values=(2,2,2), tags = ('even',))        
-        # DB
-        self.rolls = []
-        for self.n in range(1,100):
-            self.rolls.append((str(self.n), '05K/A', "{:.2f}" .format(13.5*(0.9+random()*0.2),2)))
-
-        for self.i in range(len(self.rolls)):
-            if self.i % 2 == 0:
-                self.tree_weight.insert('', 'end', values=self.rolls[self.i], tags = ('odd',))
+        
+        for n in range(1,100):
+            if n % 2 == 0:
+                self.tree_weight.insert('', 'end', values=(n, '05K/A', "{:.2f}" .format(13.5*(0.9+random()*0.2),2)), tags = ('odd',))
             else:
-                self.tree_weight.insert('', 'end', values=self.rolls[self.i], tags = ('even',))
+                self.tree_weight.insert('', 'end', values=(n, '05K/A', "{:.2f}" .format(13.5*(0.9+random()*0.2),2)), tags = ('even',))
+       
+'''        
+        # DB
+        rolls = []
+        for a in range(1,100):
+            self.tree_weight.insert('', 'end', values=(a, '05K/A', "{:.2f}" .format(13.5*(0.9+random()*0.2),2)), tags = ('even',))
+            rolls.append(a, '05K/A', "{:.2f}" .format(13.5*(0.9+random()*0.2),2))
 
+        for i in range(len(rolls)):
+            if i % 2 == 0:
+                self.tree_weight.insert('', 'end', values=rolls[i], tags = ('odd',))
+            else:
+                self.tree_weight.insert('', 'end', values=rolls[i], tags = ('even',))
+'''
 
 '''
         # labels
