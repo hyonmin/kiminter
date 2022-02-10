@@ -1,4 +1,5 @@
 from calendar import Calendar
+from email.policy import default
 from tkinter import *
 import tkinter.messagebox
 from tkinter import ttk
@@ -21,6 +22,9 @@ f4 = ('arial', 15, 'normal')
 f5 = ('arial', 14, 'normal')
 #buttons
 f6 = ('times new roman', 17, 'bold')
+
+default_data={}
+months = ('janv', 'févr', 'mars', 'avril', 'mai', 'juin', 'juil', 'août', 'sept', 'oct', 'nov', 'déc')
 
 def main():
     root = Tk()
@@ -123,6 +127,10 @@ class window1:
         self.yt=self.cal.get_date()[6:10]
         self.today=datetime(int(self.yt), int(self.mt), int(self.dt))
         self.ddiff= self.today-self.init
+        default_data['date'] = "le" + self.today.strftime("%d")\
+            +", "+ months[int(self.mt)-1] + ". " + self.today.strftime("%Y")
+        default_data['logintime'] = datetime.today()
+
     
         if self.ddiff.days % 3 == 0:
             self.EQA.configure(state=DISABLED)
@@ -130,8 +138,10 @@ class window1:
             self.EQC.configure(state=NORMAL)
             if self.js.get() == 0:
                 self.EQC.configure(state=DISABLED)
+                default_data['equipe'] = "B"
             else:
                 self.EQB.configure(state=DISABLED)
+                default_data['equipe'] = "C"
 
         elif self.ddiff.days % 3 == 1:
             self.EQA.configure(state=NORMAL)
@@ -139,21 +149,28 @@ class window1:
             self.EQC.configure(state=DISABLED)
             if self.js.get() == 0:
                 self.EQB.configure(state=DISABLED)
+                default_data['equipe'] = "A"
             else:
                 self.EQA.configure(state=DISABLED)
+                default_data['equipe'] = "B"
         else:
             self.EQA.configure(state=NORMAL)
             self.EQB.configure(state=DISABLED)
             self.EQC.configure(state=NORMAL)
             if self.js.get() == 0:
                 self.EQA.configure(state=DISABLED)
+                default_data['equipe'] = "C"
             else:
                 self.EQC.configure(state=DISABLED)
+                default_data['equipe'] = "A"
 #-------------------------------login--------------------------------
     def login_system(self):
-        #self.master.withdraw()
+        self.master.withdraw()
         self.newWindow = Toplevel(self.master)
         self.app = window2(self.newWindow)
+        
+
+
 
 class window2:
     def __init__(self, master):
@@ -203,8 +220,8 @@ class window2:
         self.frame_buttons.pack(side='right', padx=(0,30))
 
         #Frame for labels
-        self.frame_labels = LabelFrame(self.master, text="  Informations  ", font=f2, padx=20, pady=40)
-        self.frame_labels.pack(side='right', padx=(0,30))
+        self.frame_labels = LabelFrame(self.master, text="Informations", font=f2, padx=20, pady=40, relief="flat")
+        self.frame_labels.pack(side='top', padx=(80,0), pady=15, fill="x")
 
 #=====================================================================buttons for machines==========================
         # buttons for machines
@@ -426,83 +443,107 @@ class window2:
             else:
                 self.tree_weight.insert('', 'end', values=(n, '05K/A', "{:.2f}" .format(13.5*(0.9+random()*0.2),2)), tags = ('even',))
        
-'''        
+        
         # DB
         rolls = []
         for a in range(1,100):
-            self.tree_weight.insert('', 'end', values=(a, '05K/A', "{:.2f}" .format(13.5*(0.9+random()*0.2),2)), tags = ('even',))
-            rolls.append(a, '05K/A', "{:.2f}" .format(13.5*(0.9+random()*0.2),2))
+            rolls.append((a, '05K/A', "{:.2f}" .format(13.5*(0.9+random()*0.2),2)))
 
         for i in range(len(rolls)):
             if i % 2 == 0:
                 self.tree_weight.insert('', 'end', values=rolls[i], tags = ('odd',))
             else:
                 self.tree_weight.insert('', 'end', values=rolls[i], tags = ('even',))
-'''
 
-'''
+
+
         # labels
         self.article = StringVar()
 
-        self.label_date = Label(self.master, text="DATE",\
-            font = f2).place(x=460, y=120)
-        self.label_dot1 = Label(self.master, text=":",\
-            font = f2).place(x=640, y=120)
+        self.label_date = Label(self.frame_labels, text="DATE",\
+            font = f2).grid(row=0, column=0, sticky = 'w')
+        self.label_dot1 = Label(self.frame_labels, text=":",\
+            font = f2).grid(row=0, column=1, padx=(10,0))
 
-        self.label_Equipe = Label(self.master, text="EQUIPE", \
-            font = f2).place(x=460, y=190)
-        self.label_dot2 = Label(self.master, text=":",\
-            font = f2).place(x=640, y=190)
+        self.label_Equipe = Label(self.frame_labels, text="EQUIPE", \
+            font = f2).grid(row=1, column=0, sticky = 'w', pady=30)
+        self.label_dot2 = Label(self.frame_labels, text=":",\
+            font = f2).grid(row=1, column=1, padx=(10,0), pady=30)
 
-        self.label_machine = Label(self.master, text="MACHINE", \
-            font = f2).place(x=460, y=260)
-        self.label_dot3 = Label(self.master, text=":",\
-            font = f2).place(x=640, y=260)
+        self.label_machine = Label(self.frame_labels, text="MACHINE", \
+            font = f2).grid(row=2, column=0, sticky = 'w')
+        self.label_dot3 = Label(self.frame_labels, text=":",\
+            font = f2).grid(row=2, column=1, padx=(10,0))
 
-        self.label_production = Label(self.master, text="PRODUCTION", \
-            font = f2).place(x=460, y=330)
-        self.label_dot4 = Label(self.master, text=":",\
-            font = f2).place(x=640, y=330)
+        self.label_production = Label(self.frame_labels, text="ID", \
+            font = f2).grid(row=3, column=0, sticky = 'w', pady=30)
+        self.label_dot4 = Label(self.frame_labels, text=":",\
+            font = f2).grid(row=3, column=1, padx=(10,0), pady=30)
 
-        self.label_article = Label(self.master, text="ARTICLE", \
-            font = f2).place(x=460, y=400)
-        self.label_dot5 = Label(self.master, text=":",\
-            font = f2).place(x=640, y=400)
+        self.label_article = Label(self.frame_labels, text="ARTICLE", \
+            font = f2).grid(row=4, column=0, sticky = 'w')
+        self.label_dot5 = Label(self.frame_labels, text=":",\
+            font = f2).grid(row=4, column=1, padx=(10,0))
 
         articles=["","05K/A", "05NK/G","08D", "08NK/G"]
-        self.combo_article = ttk.Combobox(self.master, width=10, textvariable=self.article,\
+        self.combo_article = ttk.Combobox(self.frame_labels, width=14, textvariable=self.article,\
             values=articles,font = f2, state="readonly", justify="center")
-        self.combo_article.place(x=663, y=400)
+        self.combo_article.grid(row=4, column=2, padx=20)
 
-        self.label_poid = Label(self.master, text="POID", \
-            font = f2).place(x=460, y=470)
-        self.label_dot6 = Label(self.master, text=":",\
-            font = f2).place(x=640, y=470)
-        self.label_kg = Label(self.master, text="kg", \
-            font = f2).place(x=835, y=470)
+        self.label_poid = Label(self.frame_labels, text="POID", \
+            font = f2).grid(row=5, column=0, sticky = 'w', pady=30)
+        self.label_dot6 = Label(self.frame_labels, text=":",\
+            font = f2).grid(row=5, column=1, padx=(10,0), pady=30)
+        self.label_kg = Label(self.frame_labels, text="kg", \
+            font = f2).grid(row=5, column=3, pady=15)
 
         # Entry
+        self.ent_date = Entry(self.frame_labels, font = f2, width=20, bd=3,\
+            justify='center')
+        self.ent_date.grid(row=0, column=2)
+        self.ent_date.insert(0, default_data.get("date"))
+        self.ent_date.config(state='disabled')
+
+        self.ent_equipe = Entry(self.frame_labels, font = f2, width=15, bd=3,\
+            justify='center')
+        self.ent_equipe.grid(row=1, column=2, pady=30)
+        self.ent_equipe.insert(0, default_data.get("equipe"))
+        self.ent_equipe.config(state='disabled')
+
+        self.ent_machine = Entry(self.frame_labels, font = f2, width=15, bd=3,\
+            justify='center', state='disabled')
+        self.ent_machine.grid(row=2, column=2)
+
+        self.ent_id = Entry(self.frame_labels, font = f2, width=15, bd=3,\
+            justify='center', state='disabled')
+        self.ent_id.grid(row=3, column=2, pady=30)
+
         self.poid_var = StringVar()
-        self.ent_weight = Entry(self.master, font = f2, width=10, bd=3,\
-            justify=RIGHT, textvariable=self.poid_var)
-        self.ent_weight.place(x=660, y=468)
+        self.ent_weight = Entry(self.frame_labels, font = f2, width=15, bd=3,\
+            justify='center', textvariable=self.poid_var)
+        self.ent_weight.grid(row=5, column=2, pady=15)
 
         # when choosing a thing of treeview
         def selecting(event):
             for info in self.tree_weight.selection():
                 items = self.tree_weight.item(info)
-
+                self.ent_id.config(state='normal')
+                self.ent_id.delete(0, END)
+                self.ent_id.insert(0, items['values'][0])
+                self.ent_id.config(state='disabled')
                 self.ent_weight.delete(0, END)
                 self.ent_weight.insert(0, items['values'][2])
                 self.combo_article.set(items['values'][1])
 
         self.tree_weight.bind('<<TreeviewSelect>>', selecting)
 
+        
+
 
         # variable labels
         def click_machines():
             from datetime import datetime, timedelta
-            self.frame_labels = Frame(self.master, width=800, bg='black').pack(side=LEFT)
+            self.frame_labels = Frame(self.frame_labels, width=800, bg='black').pack(side=LEFT)
 '''
         # imports for a DB
         #import os
@@ -540,6 +581,6 @@ class window3:
 
         self.master.mainloop()
 
-
+'''
 if __name__ == '__main__':
     main()
