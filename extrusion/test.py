@@ -1,3 +1,22 @@
+a="aa"
+b="bb"
+c="cc"
+d="dd"
+e="ee"
+
+
+l=(a,b,c,d,e)
+
+def a(*l):
+    print(l)
+
+a(l)
+    
+
+
+
+
+'''
 from tkinter import *
 w = Tk()
 w.title("dd")
@@ -24,3 +43,4 @@ disp = Label(w, textvariable=var)
 disp.pack(pady=20)
 Button(w, text="show selected", command = showSelected).pack()
 w.mainloop()
+'''
