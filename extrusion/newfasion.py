@@ -31,6 +31,7 @@ f7 = ('Times New Roman', 15, 'normal')
 # keys; 'logintime(login time)
 # keys; 'equipe'(the name of group)
 # keys; 'name'(access name)
+# keys; 'jour/soir'(0: jour, 1:soir)
 
 default_data={}
 months = ('janv', 'févr', 'mars', 'avril', 'mai', 'juin', 'juil', 'août', 'sept', 'oct', 'nov', 'déc')
@@ -155,9 +156,11 @@ class window1:
             if self.js.get() == 0:
                 self.EQC.configure(state='disabled')
                 default_data['equipe'] = "B"
+                default_data['jour/soir'] = self.js.get()
             else:
                 self.EQB.configure(state='disabled')
                 default_data['equipe'] = "C"
+                default_data['jour/soir'] = self.js.get()
 
         elif self.ddiff.days % 3 == 1:
             self.EQA.configure(state='normal')
@@ -166,9 +169,11 @@ class window1:
             if self.js.get() == 0:
                 self.EQB.configure(state='disabled')
                 default_data['equipe'] = "A"
+                default_data['jour/soir'] = self.js.get()
             else:
                 self.EQA.configure(state='disabled')
                 default_data['equipe'] = "B"
+                default_data['jour/soir'] = self.js.get()
         else:
             self.EQA.configure(state='normal')
             self.EQB.configure(state='disabled')
@@ -176,9 +181,11 @@ class window1:
             if self.js.get() == 0:
                 self.EQA.configure(state='disabled')
                 default_data['equipe'] = "C"
+                default_data['jour/soir'] = self.js.get()
             else:
                 self.EQC.configure(state='disabled')
                 default_data['equipe'] = "A"
+                default_data['jour/soir'] = self.js.get()
 #-------------------------------login--------------------------------
     def login_system(self):
         if self.Nom.get().strip() =="":

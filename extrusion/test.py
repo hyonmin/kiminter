@@ -1,46 +1,42 @@
-a="aa"
-b="bb"
-c="cc"
-d="dd"
-e="ee"
+a= "1"
+b= 1.0
+c = [a,b]
+if int(a) == b:
+    print('g')
 
-
-l=(a,b,c,d,e)
-
-def a(*l):
-    print(l)
-
-a(l)
-    
-
-
-
-
+print(str(b))
 '''
 from tkinter import *
+
+
+class a:
+    def __init__(self, master):
+        self.master = master
+        self.master.geometry("300x300")
+        
+        Button(self.master, text = 'click to open toplevel', command = self.open_top).pack()
+
+
+    def open_top(self):
+        newone(self)
+        
+def newone(self):
+    self.top1 = Toplevel(self.master)
+    self.top1.geometry('200x200')
+    Button(self.top1, text = "click to open toplevel2", command = lambda: warn()).pack()
+    self.top1.grab_set()
+
+    def warn():
+        a = Toplevel()
+        a.geometry('100x100')
+        Button(a, text="exit", command = a.destroy).pack()
+        a.grab_set()
+
+
 w = Tk()
-w.title("dd")
-w.geometry("300x300")
+a(w)
 
 
-def showSelected():
-    a = lb.curselection()[0]
-    print(a)
-    itm = lb.get(a)
-    var.set(itm)
-var=StringVar()
-lb=Listbox(w)
-lb.pack()
-
-
-lb.insert(0, "Iceland")
-lb.insert(1, "USA")
-lb.insert(2, "China")
-lb.insert(3, "Europe")
-
-
-disp = Label(w, textvariable=var)
-disp.pack(pady=20)
-Button(w, text="show selected", command = showSelected).pack()
+    
 w.mainloop()
 '''

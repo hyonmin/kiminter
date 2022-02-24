@@ -1,47 +1,86 @@
+from gettext import find
 import sqlite3
 import gain_xl_date
 
-CREATE_ARTICLE_TABLE = """CREATE TABLE IF NOT EXISTS article (
+CREATE_ARTICLE_TABLE = """CREATE TABLE IF NOT EXISTS article_local (
     id INTEGER PRIMARY KEY,
     articles TEXT,
-    prod_weight(kg) INTEGER,
-    width(mm) INTEGER,
-    length(mm) INTEGER,
-    inner_pack_weight(kg) INTEGER,
-    outer_pack_weight(kg) INTEGER,
-    quantity(pcs) INTEGER,
-    ref_weight(g) INTEGER,
-    thickness(mm) INTEGER,
+    [prod_weight(kg)] REAL,
+    [width(cm)] REAL,
+    [length(cm)] REAL,
+    [inner_pack_weight(kg)] REAL,
+    [outer_pack_weight(kg)] REAL,
+    [quantity(pcs)] INTEGER,
+    [gusset(cm)] REAL,
+    [ref_weight(g)] REAL,
+    [thickness(μm)] REAL,
     active INTEGER,
     created INTEGER,
-    modified INTEGER);"""
+    modified INTEGER,
+    deleted INTEGER);"""
 
-INSERT_ARTICLE = """INSERT INTO article (
+INSERT_ARTICLE = """INSERT INTO article_local (
     articles,
-    prod_weight(kg),
-    width(mm),
-    length(mm),
-    inner_pack_weight(kg),
-    outer_pack_weight(kg),
-    quantity(pcs),
-    ref_weight(g),
-    thickness(mm),
+    [prod_weight(kg)],
+    [width(cm)],
+    [length(cm)],
+    [inner_pack_weight(kg)],
+    [outer_pack_weight(kg)],
+    [quantity(pcs)],
+    [gusset(cm)],
+    [ref_weight(g)],
+    [thickness(μm)],
     active,
     created,
-    modified) VALUES (?,?,?,?,?,?,?,?,?,?,?,?);"""
+    modified,
+    deleted) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?);"""
 
-GET_ALL_ARTICLES = "SELECT articles FROM article"
+GET_ALL_ARTICLES = "SELECT articles FROM article_local WHERE modified = ? AND deleted = ?;"
 
-GET_BEANS_BY_NAME = "SELECT * FROM beans WHERE name = ?;" 
+GET_INFO_TREEVIEW = """
+SELECT
+    articles,
+    [ref_weight(g)],
+    [width(cm)],
+    [length(cm)],
+    [gusset(cm)],
+    [prod_weight(kg)],
+    [quantity(pcs)],
+    [inner_pack_weight(kg)],
+    [outer_pack_weight(kg)],
+    [thickness(μm)],
+    id
+FROM article_local
+WHERE modified = ?
+AND deleted = ?;"""
 
-GET_BEST_PREPARATION_FOR_BEAN = """
-SELECT name FROM beans
-WHERE name = ?
-ORDER BY rating DESC
-LIMIT 1;"""
+GET_ARTICLE_MODIFIED = """
+UPDATE article_local
+SET
+    [prod_weight(kg)] = ?,
+    [width(cm)] = ?,
+    [length(cm)] = ?,
+    [inner_pack_weight(kg)] = ?,
+    [outer_pack_weight(kg)] = ?,
+    [quantity(pcs)] = ?,
+    [gusset(cm)] = ?,
+    [ref_weight(g)] = ?,
+    [thickness(μm)] = ?,
+    modified = ?
+WHERE id = ?;"""
+
+DEL_MODIFIED = """UPDATE article_local SET modified = ? WHERE id = ?;"""
+
+FIND_CREADED = """SELECT created FROM article_local WHERE id = ?;"""
+
+DEL_ARTICLE = """
+UPDATE article_local
+SET deleted = ?
+WHERE id = ?;
+"""
 
 def connect():
-    return sqlite3.connect('/home/pi/projects/extrusion/DB/articles.db')
+    return sqlite3.connect('/home/pi/projects/extrusion/DB/extrusion.db')
 
 
 def create_tables(connection):
@@ -49,18 +88,34 @@ def create_tables(connection):
         connection.execute(CREATE_ARTICLE_TABLE)
 
 # variables for *var, lookup 'INSERT_BEAN'
-def add_article(connection, *var):
+def add_article(connection, info_article):
     with connection:
-        connection.execute(INSERT_ARTICLE, var)
+        connection.execute(INSERT_ARTICLE, info_article)
 
-def get_all_articles(connection):
+def get_all_names(connection):
     with connection:
-        return connection.execute(GET_ALL_ARTICLES).fetchall()
+        return connection.execute(GET_ALL_ARTICLES, ('0','0')).fetchall()
 
-def get_beans_by_name(connection, name):
+def get_info_treeview(connection):
     with connection:
-        connection.execute(GET_BEANS_BY_NAME,(name,)).fetchall()
+        return connection.execute(GET_INFO_TREEVIEW,('0','0')).fetchall()
 
-def get_best_preparation_for_bean(connection, name):
+def find_created(connection, var):
     with connection:
-        return connection.execute(GET_BEST_PREPARATION_FOR_BEAN, (name,)).fetchone()
+        return connection.execute(FIND_CREADED, var)
+
+def get_article_modified(connection, var):
+    with connection:
+        connection.execute(GET_ARTICLE_MODIFIED, var)
+
+def del_modified(connection, var):
+    with connection:
+        connection.execute(DEL_MODIFIED, var)
+
+def delete_article(connection, del_var):
+    with connection:
+        connection.execute(DEL_ARTICLE, del_var)
+
+
+print(CREATE_ARTICLE_TABLE)
+

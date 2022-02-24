@@ -22,7 +22,7 @@ def create_tables(connection):
         connection.execute(CREATE_BEANS_TABLE)
 
 
-def add_bean(connection, *var):
+def add_bean(connection, var):
     with connection:
         connection.execute(INSERT_BEAN, var)
 
@@ -32,7 +32,7 @@ def get_all_beans(connection):
 
 def get_beans_by_name(connection, name):
     with connection:
-        connection.execute(GET_BEANS_BY_NAME,(name,)).fetchall()
+        return connection.execute(GET_BEANS_BY_NAME,(name,)).fetchall()
 
 def get_best_preparation_for_bean(connection, name):
     with connection:

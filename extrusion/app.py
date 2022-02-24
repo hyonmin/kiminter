@@ -25,13 +25,20 @@ def menu():
         name = input("Enter bean name: ")
         method = input("Enter how you've prepared it: ")
         rating = int(input("Enter your rating score(0-100): "))
-        tst.add_bean(connection, name, method, rating)
+        a = (name, method, rating)
+        tst.add_bean(connection, a)
+
     elif user_input == "2":
         beans = tst.get_all_beans(connection)
         for bean in beans:
             print(bean)
+
     elif user_input == "3":
-        pass
+        name = str(input("Enter bean name to find: "))
+        beans = tst.get_beans_by_name(connection, name)
+        for bean in beans:
+            print(bean)
+
     elif user_input == "4":
         pass
     else:
