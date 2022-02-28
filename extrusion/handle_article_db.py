@@ -1,9 +1,7 @@
-from gettext import find
 import sqlite3
-import gain_xl_date
 
 CREATE_ARTICLE_TABLE = """CREATE TABLE IF NOT EXISTS article_local (
-    id INTEGER PRIMARY KEY,
+    article_id INTEGER PRIMARY KEY,
     articles TEXT,
     [prod_weight(kg)] REAL,
     [width(cm)] REAL,
@@ -49,10 +47,17 @@ SELECT
     [inner_pack_weight(kg)],
     [outer_pack_weight(kg)],
     [thickness(μm)],
-    id
+    article_id
 FROM article_local
 WHERE modified = ?
 AND deleted = ?;"""
+
+GET_LISTBOX = """
+SELECT article_id, articles
+FROM article_local
+WHERE modified = ?
+AND deleted = ?
+AND active = ?;"""
 
 GET_ARTICLE_MODIFIED = """
 UPDATE article_local
@@ -67,17 +72,29 @@ SET
     [ref_weight(g)] = ?,
     [thickness(μm)] = ?,
     modified = ?
-WHERE id = ?;"""
+WHERE article_id = ?;"""
 
-DEL_MODIFIED = """UPDATE article_local SET modified = ? WHERE id = ?;"""
+DEL_MODIFIED = """UPDATE article_local SET modified = ? WHERE article_id = ?;"""
 
-FIND_CREADED = """SELECT created FROM article_local WHERE id = ?;"""
+FIND_CREADED = """SELECT created FROM article_local WHERE article_id = ?;"""
 
 DEL_ARTICLE = """
 UPDATE article_local
 SET deleted = ?
-WHERE id = ?;
+WHERE article_id = ?;
 """
+MAKE_ACT_INACT = """
+UPDATE article_local
+SET active = ?
+WHERE
+article_id = ?;
+"""
+
+ARTICLE_ID = """
+SELECT article_id
+FROM article_local
+WHERE
+articles = ? AND deleted = ? AND modified = ?;"""
 
 def connect():
     return sqlite3.connect('/home/pi/projects/extrusion/DB/extrusion.db')
@@ -102,7 +119,7 @@ def get_info_treeview(connection):
 
 def find_created(connection, var):
     with connection:
-        return connection.execute(FIND_CREADED, var)
+        return connection.execute(FIND_CREADED, var).fetchone()
 
 def get_article_modified(connection, var):
     with connection:
@@ -112,10 +129,18 @@ def del_modified(connection, var):
     with connection:
         connection.execute(DEL_MODIFIED, var)
 
-def delete_article(connection, del_var):
+def delete_article(connection, var):
     with connection:
-        connection.execute(DEL_ARTICLE, del_var)
+        connection.execute(DEL_ARTICLE, var)
 
+def get_listbox(connection, var):
+    with connection:
+        return connection.execute(GET_LISTBOX, (0, 0, str(var))).fetchall()    # with var = 0 , callback active, var = 1, callback inactive
 
-print(CREATE_ARTICLE_TABLE)
+def make_acf_inacf(connection, var):
+    with connection:
+        connection.execute(MAKE_ACT_INACT, var)
 
+def lookup_articleID(connection, var):
+    with connection:
+        return connection.execute(ARTICLE_ID, (var,'0','0')).fetchone()

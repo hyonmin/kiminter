@@ -58,35 +58,35 @@ def a(self):
     self.tree_list_article = ttk.Treeview(self.frame_list, height=6,\
         style="mystyle2.Treeview", selectmode='browse')
 
-    self.column_list = ("article", "poid 0.5m(g)", "largeur(cm)", "longueur(cm)", 'soufflet(cm)',\
-        "poid du produit(kg)", "quantité(pcs)", "poid emballage", "poid sac", "épaisseur", "id")
+    self.column_list = ("article", "poids 0.5m(g)", "largeur(cm)", "longueur(cm)", 'soufflet(cm)',\
+        "poids du produit(kg)", "quantité(pcs)", "poids emballage", "poids sac", "épaisseur", "id")
     
     self.tree_list_article['columns'] = self.column_list
 
     self.tree_list_article.column('#0', width=0, stretch=NO)
     self.tree_list_article.column('article', anchor=CENTER, width=120)
-    self.tree_list_article.column('poid du produit(kg)', anchor=CENTER, width=140)
+    self.tree_list_article.column('poids du produit(kg)', anchor=CENTER, width=140)
     self.tree_list_article.column('largeur(cm)', anchor=CENTER, width=120)
     self.tree_list_article.column('longueur(cm)', anchor=CENTER, width=120)
     self.tree_list_article.column('soufflet(cm)', anchor=CENTER, width=120)
     self.tree_list_article.column('quantité(pcs)', anchor=CENTER, width=180)
-    self.tree_list_article.column('poid emballage', anchor=CENTER, width=180)
-    self.tree_list_article.column('poid sac', anchor=CENTER, width=120)
+    self.tree_list_article.column('poids emballage', anchor=CENTER, width=180)
+    self.tree_list_article.column('poids sac', anchor=CENTER, width=120)
     self.tree_list_article.column('épaisseur', anchor=CENTER, width=120)
-    self.tree_list_article.column('poid 0.5m(g)', anchor=CENTER, width=120)
+    self.tree_list_article.column('poids 0.5m(g)', anchor=CENTER, width=120)
     self.tree_list_article.column('id', width=0, stretch=NO)
 
     self.tree_list_article.heading('#0', text='', anchor=CENTER)
     self.tree_list_article.heading('article', text='article', anchor=CENTER)
-    self.tree_list_article.heading('poid du produit(kg)', text='poid du produit(kg)', anchor=CENTER)
+    self.tree_list_article.heading('poids du produit(kg)', text='poids du produit(kg)', anchor=CENTER)
     self.tree_list_article.heading('largeur(cm)', text='largeur(cm)', anchor=CENTER)
     self.tree_list_article.heading('longueur(cm)', text='longueur(cm)', anchor=CENTER)
     self.tree_list_article.heading('soufflet(cm)', text='soufflet(cm)', anchor=CENTER)
     self.tree_list_article.heading('quantité(pcs)', text='quantité(pcs)', anchor=CENTER)
-    self.tree_list_article.heading('poid emballage', text='poid emballage', anchor=CENTER)
-    self.tree_list_article.heading('poid sac', text='poid sac', anchor=CENTER)
+    self.tree_list_article.heading('poids emballage', text='poids emballage', anchor=CENTER)
+    self.tree_list_article.heading('poids sac', text='poids sac', anchor=CENTER)
     self.tree_list_article.heading('épaisseur', text='épaisseur', anchor=CENTER)
-    self.tree_list_article.heading('poid 0.5m(g)', text='poid 0.5m(g)', anchor=CENTER)
+    self.tree_list_article.heading('poids 0.5m(g)', text='poids 0.5m(g)', anchor=CENTER)
     self.tree_list_article.heading('id', text='', anchor=CENTER)
 
     # scollbar
@@ -109,9 +109,9 @@ def a(self):
     self.lbl_article = Label(self.frame_manager_lbl, text="Article", font=f3, bg=color_bg)
     self.lbl_article.grid(row=0, column=0, sticky='w', padx=(70,15), pady=4) 
     self.ent_article = Entry(self.frame_manager_lbl,  width=18, bd=3, justify='center',\
-        font=f3, textvariable=self.article_name)
+        font=f3, textvariable=self.article_name, disabledbackground="lemon chiffon", disabledforeground="black")
     self.ent_article.grid(row=0, column=1, pady=4)
-    self.lbl_weight = Label(self.frame_manager_lbl, text="Poid du Produit(kg)", font=f3, bg=color_bg)
+    self.lbl_weight = Label(self.frame_manager_lbl, text="poids du Produit(kg)", font=f3, bg=color_bg)
     self.lbl_weight.grid(row=0, column=2, sticky='w', padx=(100,0), pady=4) 
     self.ent_weight = Entry(self.frame_manager_lbl, width=18, bd=3, justify='center', font=f3)
     self.ent_weight.grid(row=0, column=3, padx=15, pady=4)
@@ -125,11 +125,11 @@ def a(self):
     self.ent_length = Entry(self.frame_manager_lbl, width=18, bd=3, justify='center', font=f3)
     self.ent_length.grid(row=1, column=3, pady=4)
 
-    self.lbl_weight_pack = Label(self.frame_manager_lbl, text="Poid Emballage(kg)", font=f3, bg=color_bg)
+    self.lbl_weight_pack = Label(self.frame_manager_lbl, text="poids Emballage(kg)", font=f3, bg=color_bg)
     self.lbl_weight_pack.grid(row=2, column=0, sticky='w', padx=(70,15), pady=4) 
     self.ent_weight_pack = Entry(self.frame_manager_lbl, width=18, bd=3, justify='center', font=f3)
     self.ent_weight_pack.grid(row=2, column=1, pady=4)
-    self.lbl_weight_sac = Label(self.frame_manager_lbl, text="Poid Sac(kg)", font=f3, bg=color_bg)
+    self.lbl_weight_sac = Label(self.frame_manager_lbl, text="poids Sac(kg)", font=f3, bg=color_bg)
     self.lbl_weight_sac.grid(row=2, column=2, sticky='w', padx=(100,0), pady=4) 
     self.ent_weight_sac = Entry(self.frame_manager_lbl, width=18, bd=3, justify='center', font=f3)
     self.ent_weight_sac.grid(row=2, column=3, pady=4)
@@ -143,7 +143,7 @@ def a(self):
     self.ent_gusset = Entry(self.frame_manager_lbl, width=18, bd=3, justify='center', font=f3)
     self.ent_gusset.grid(row=3, column=3, pady=4)
 
-    self.lbl_poid_demi = Label(self.frame_manager_lbl, text="Poid 0.5 metre(g)", font=f3, bg=color_bg)
+    self.lbl_poid_demi = Label(self.frame_manager_lbl, text="poids 0.5 metre(g)", font=f3, bg=color_bg)
     self.lbl_poid_demi.grid(row=4, column=0, sticky='w', padx=(70,15), pady=(4,0)) 
     self.ent_poid_demi = Entry(self.frame_manager_lbl, width=18, bd=3, justify='center',\
         font=f3, state= 'disabled', disabledbackground="lemon chiffon", disabledforeground="black")
@@ -163,7 +163,7 @@ def a(self):
         state='disabled', command = lambda: mod_old())
     self.btn_modif.grid(row=1, column=0, pady=10)
 
-    self.btn_delete = Button(self.frame_manager_btn, text = "Supplimer", width=7, font=f3, bd=3,\
+    self.btn_delete = Button(self.frame_manager_btn, text = "Supprimer", width=7, font=f3, bd=3,\
         state='disabled', command = lambda: del_art())
     self.btn_delete.grid(row=2, column=0, pady=(0,10))
 
@@ -193,6 +193,7 @@ def a(self):
 
     def select(event):
         clear_ent()
+        id_article.clear()
         self.ent_poid_demi.config(state='normal')
         self.ent_thickness.config(state='normal')
 
@@ -250,61 +251,25 @@ def a(self):
     self.listbox_active.pack()
 
     # arrow button to move articles you want to activate or inactivate
-    self.btn_arrow_right = Button(self.frame_article_btns, text=">>", font=f1, bd=3)
+    self.btn_arrow_right = Button(self.frame_article_btns, text=">>", font=f1, bd=3,\
+        command = lambda: make_actif())
     self.btn_arrow_right.pack(pady=(0,5))
-    self.btn_arrow_left = Button(self.frame_article_btns, text="<<", font=f1, bd=3)
+    self.btn_arrow_left = Button(self.frame_article_btns, text="<<", font=f1, bd=3,\
+        command = lambda: make_inactif())
     self.btn_arrow_left.pack()
     
     # prohibit from accessing other windows
     self.articles.grab_set()
-
     # warning messages=============================
-    # if the name of article is duplicated
-    def warn_dup():
-        cont = Toplevel()
-        cont.geometry("250x100+850+450")
-        cont.title("Attention!")
-        msg = Label(cont, text = "il s'agit d'article en double.", font=f1)
-        msg.pack(fill=Y, expand=True)
-        msg_btn = Button(cont, text = "OK", command = cont.destroy, font = f1)
-        msg_btn.pack(fill=Y, expand=True)
-        cont.grab_set()
-
-    # if the number or numbers given by adding or modifing an article have an error
-    def warn_digit():
-        cont2 = Toplevel()
-        cont2.geometry("250x100+850+450")
-        cont2.title("Attention!")
-        msg2 = Label(cont2, text = "vérifiez les chiffres.", font=f1)
-        msg2.pack(fill=Y, expand=True)
-        msg2_btn = Button(cont2, text = "OK", command = cont2.destroy, font = f1)
-        msg2_btn.pack(fill=Y, expand=True)
-        cont2.grab_set()
-
-    # when adding a new article has been done.
-    def comp():
-        clear_ent()
-        get_treeview()
-
-        cont3 = Toplevel()
-        cont3.geometry("250x100+850+450")
-        cont3.title("Fini")
-        msg3 = Label(cont3, text = "c'est passé", font=f1)
-        msg3.pack(fill=Y, expand=True)
-        msg3_btn = Button(cont3, text = "OK", command = cont3.destroy, font = f1)
-        msg3_btn.pack(fill=Y, expand=True)
-        cont3.grab_set()
-    
     def warn_general(m):
-        cont4 = Toplevel()
-        cont4.geometry("250x150+850+450")
-        cont4.title("Attention!")
-        msg4 = Label(cont4, text = m, font=f1)
-        msg4.pack(fill=Y, expand=True)
-        msg4_btn = Button(cont4, text = "OK", command = cont4.destroy, font = f1)
-        msg4_btn.pack(fill=Y, expand=True)
-        cont4.grab_set()
-
+        warn_top = Toplevel()
+        warn_top.geometry("250x150+850+450")
+        warn_top.title("Attention!")
+        msg = Label(warn_top, text = m, font=f1)
+        msg.pack(pady=(35,20))
+        msg_btn = Button(warn_top, text = "OK", command = warn_top.destroy, font = f1)
+        msg_btn.pack()
+        warn_top.grab_set()
 
     # database control=============================
     #create a db if no exists
@@ -322,7 +287,7 @@ def a(self):
         try:
             articles_from_db = dbdb.get_all_names(conn())
         except:
-            warn_dup()
+            warn_general("il s'agit d'article en double.")
             return
         
         art = []
@@ -330,12 +295,12 @@ def a(self):
             art.append(A[0])
         try:
             if article in art:
-                warn_dup()
+                warn_general("il s'agit d'article en double.")
                 return
             else:
                 return article
         except:
-            warn_dup()
+            warn_general("il s'agit d'article en double.")
             return
 
     # to refine the text which will be inserted into the table
@@ -359,14 +324,24 @@ def a(self):
             try:
                 h[j] = float(i)
             except ValueError:
-                warn_digit()
+                warn_general("vérifiez les chiffres.")
                 return
             j += 1
         try:
-            thickness = (h[0] - h[3] - h[4])*5000 / (h[5] * (h[1]+(h[6]*2))*0.01 * h[2]*0.01 * 948)*10000
+            def fraction(p):
+                numerator = (h[1]+h[6]*2)* 0.01 * h[2] *0.01 * h[5] * 948 * 2 * (1-p)
+                return numerator
+            
+            denominator = (h[0] - h[3] - h[4])
+            #thickness = (h[0] - h[3] - h[4])*5000 / (h[5] * (h[1]+(h[6]*2))*0.01 * h[2]*0.01 * 948)*10000
+            if h[6] != 0:
+                numerator = fraction(0.1)
+            else:
+                numerator = fraction(0)
+            thickness = denominator * 100000000 * 0.98 /numerator    # 0.98, get 2% benefit.
             demi = (h[1]+(h[6]*2)) * 0.01 * 0.5 * thickness*2 * 948 / 100
             thickness = math.floor(thickness) / 100
-            demi = math.floor(demi*0.98) / 100    # 0.98 means 98%. 2% benifit from the target weight
+            demi = math.floor(demi) / 1000
             
         except TypeError: return
 
@@ -384,7 +359,8 @@ def a(self):
             art = check_duplicated()
             data_articles.insert(0, art.upper()) # insert article name into a list(data_article)
             dbdb.add_article(conn(), data_articles)
-            comp()    # it is to clear all entries and to give a message
+            warn_general("c'est passé")    # it is to clear all entries and to give a message
+            get_treeview()
         except:
             warn_general("ça ne peut pas passer(2)")
             return
@@ -394,12 +370,10 @@ def a(self):
         h = striper()
         i = 0
         j = 0
-        created = ""
+        print(id_article)
         ori_id = id_article[9]
         id_article.pop()
-
-        for c in dbdb.find_created(conn(), str(ori_id)):
-            created = c[0]
+        created = dbdb.find_created(conn(), (ori_id,))[0]
 
         for d in id_article:
             id_article[j]=float(d)
@@ -432,37 +406,51 @@ def a(self):
             return
 
 
-
-
-
-            #id_article[12] = gain_xl_date.xl_date(None)
-            #dbdb.add_article(conn(), id_article)
-
-
-
-            #mod_var = striper()
-            #mod_var.append(gain_xl_date.xl_date(None))
-            #mod_var.append(id_article[0])
-            #dbdb.get_article_modified(conn(), mod_var)
-        
-
-        #try:
-        #    add_new()
-        #except:
-        #    mod_var = ('0', str(id_article[0]))
-        #    dbdb.get_article_modified(conn(), mod_var)
-        #    get_treeview()
-        #    return
-
     def del_art():
         try:
-            del_var = [str(gain_xl_date.xl_date(None)), str(id_article[0])]
+
+            del_var = [str(gain_xl_date.xl_date(None)), str(id_article[9])]
             dbdb.delete_article(conn(), del_var)
             get_treeview()
-            comp()
+            warn_general("c'est passé")
         except:
             warn_general("ça ne peut pas passer(1)")
             return
+
+    # insert items in listboxes
+    def insert_listbox():
+        inactif = dbdb.get_listbox(conn(), 0)
+        actif = dbdb.get_listbox(conn(), 1)
+        for A in actif:
+            self.listbox_active.insert("end", A)
+        for I in inactif:
+            self.listbox_inactive.insert("end", I)
+        #
+        #self.listbox_active.insert("end", list_actif)
+
+    def clear_listboxes():
+        self.listbox_inactive.delete('0', 'end')
+        self.listbox_active.delete('0', 'end')
+
+    def make_actif():
+        if self.listbox_inactive.curselection() == ():
+            return
+        else:
+            for i in self.listbox_inactive.curselection():
+                actif_soon = self.listbox_inactive.get(i)[0]
+            dbdb.make_acf_inacf(conn(), (1, actif_soon))
+            clear_listboxes()
+            insert_listbox()
+
+    def make_inactif():
+        if self.listbox_active.curselection() == ():
+            return
+        else:
+            for i in self.listbox_active.curselection():
+                inactif_soon = self.listbox_active.get(i)[0]
+            dbdb.make_acf_inacf(conn(), (0, inactif_soon))
+            clear_listboxes()
+            insert_listbox()
 
     # insert article information into the treeview ==============================
     def get_treeview():
@@ -470,71 +458,9 @@ def a(self):
         info_articles = dbdb.get_info_treeview(conn())
         for A in info_articles:
             self.tree_list_article.insert('', 'end', values = A)
+        id_article.clear()
+        clear_listboxes()
+        insert_listbox()
+        clear_ent()
     get_treeview()
-'''        
-    def striper():
-        data_articles = {}
-        data_articles['prod_weight(kg)'] = self.ent_weight.get()
-        data_articles['width(cm)'] = self.ent_width.get()
-        data_articles['length(cm)'] = self.ent_length.get()
-        data_articles['inner_pack_weight(kg)'] = self.ent_weight_pack.get()
-        data_articles['outer_pack_weight(kg)'] = self.ent_weight_sac.get()
-        data_articles['quantity(pcs)'] = self.ent_quantity.get()
-        data_articles['gusset(cm)'] = self.ent_gusset.get()
         
-        for k, v in data_articles.items():
-            data_articles[k] = v.strip()
-            try:
-                data_articles[k] = float(v)
-            except ValueError:
-                warn_digit()
-                break
-        try:
-            data_articles['thickness(μm)'] = (\
-                data_articles['prod_weight(kg)'] - \
-                data_articles['inner_pack_weight(kg)'] - \
-                data_articles['outer_pack_weight(kg)'])*5000/ \
-                (data_articles['quantity(pcs)'] * \
-                (data_articles['width(cm)']+(data_articles['gusset(cm)']*2))*0.01 * \
-                data_articles['length(cm)']*0.01 * 948)*10000
-            data_articles['thickness(μm)'] = math.floor(data_articles['thickness(μm)']) / 100
-
-            data_articles['ref_weight(g)'] = (\
-                data_articles['width(cm)']+(data_articles['gusset(cm)']*2)) * 0.01 * 0.5 * \
-                data_articles['thickness(μm)']*2 * 948 / 1000
-            data_articles['ref_weight(g)'] = math.floor(data_articles['ref_weight(g)']) / 100
-            
-        except TypeError: return
-
-        return data_articles
-
-    
-    def add_new():
-        #try:
-        data_articles = striper()
-        data_articles['active'] = 0    # active:1, inactive:0
-        data_articles['created'] = gain_xl_date.xl_date(None)    # create date
-        data_articles['modified'] = 0    # modified:1, non-modified:0
-        data_articles['articles'] = check_duplicated()
-
-        dbdb.add_article(conn(), data_articles)
-        print(data_articles)
-        #except: return
-
-
-    self.style_article_both = ttk.Style()
-    # style for the body of the treeview.
-    self.style_article_both.configure(style="mystyle3.Treeview", rowheight=10, font=f2)
-    self.style_article_both.map("mystyle3.Treeview", background=[('selected', 'blue')])
-    self.style_article_both.theme_use("default")
-
-    self.tree_articles_left = ttk.Treeview(self.frame_article_left, height=15,\
-        style="mystyle3.Treeview", selectmode='browse')
-
-    self.tree_articles_right = ttk.Treeview(self.frame_article_right, height=15,\
-        style="mystyle3.Treeview", selectmode='browse')
-
-    self.tree_articles_left.pack()
-    self.tree_articles_right.pack()
-
-'''

@@ -10,6 +10,8 @@ from random import random
 from datetime import datetime, timedelta
 from PIL import ImageTk, Image
 import os
+import handle_article_db as dbdb
+import handle_ext_stacker as bdbd
 #----------------------font-----------------------------
 # Labeltitle
 f1 = ('Times New Roman', 50, 'bold')
@@ -30,11 +32,22 @@ f7 = ('Times New Roman', 15, 'normal')
 # keys; 'date'(for diaplay the date)
 # keys; 'logintime(login time)
 # keys; 'equipe'(the name of group)
+# keys; 'equipe_id'(id in database)
 # keys; 'name'(access name)
 # keys; 'jour/soir'(0: jour, 1:soir)
+# keys; 'production_date'
 
 default_data={}
 months = ('janv', 'févr', 'mars', 'avril', 'mai', 'juin', 'juil', 'août', 'sept', 'oct', 'nov', 'déc')
+
+def conn():
+    connection = dbdb.connect()
+    dbdb.create_tables(connection)
+    return connection
+def conn2():
+    connection = bdbd.connect()
+    bdbd.create_tables(connection)
+    return connection
 
 def main():
     root = Tk()
@@ -147,6 +160,7 @@ class window1:
         self.ddiff= self.today-self.init
         default_data['date'] = "le" + self.today.strftime("%d")\
             +", "+ months[int(self.mt)-1] + ". " + self.today.strftime("%Y")
+        default_data['production_date'] = str(self.cal.get_date())
         default_data['logintime'] = datetime.today()
 
         if self.ddiff.days % 3 == 0:
@@ -156,10 +170,12 @@ class window1:
             if self.js.get() == 0:
                 self.EQC.configure(state='disabled')
                 default_data['equipe'] = "B"
+                default_data['equipe_id'] = 2
                 default_data['jour/soir'] = self.js.get()
             else:
                 self.EQB.configure(state='disabled')
                 default_data['equipe'] = "C"
+                default_data['equipe_id'] = 3
                 default_data['jour/soir'] = self.js.get()
 
         elif self.ddiff.days % 3 == 1:
@@ -169,10 +185,12 @@ class window1:
             if self.js.get() == 0:
                 self.EQB.configure(state='disabled')
                 default_data['equipe'] = "A"
+                default_data['equipe_id'] = 1
                 default_data['jour/soir'] = self.js.get()
             else:
                 self.EQA.configure(state='disabled')
                 default_data['equipe'] = "B"
+                default_data['equipe_id'] = 2
                 default_data['jour/soir'] = self.js.get()
         else:
             self.EQA.configure(state='normal')
@@ -181,10 +199,12 @@ class window1:
             if self.js.get() == 0:
                 self.EQA.configure(state='disabled')
                 default_data['equipe'] = "C"
+                default_data['equipe_id'] = 3
                 default_data['jour/soir'] = self.js.get()
             else:
                 self.EQC.configure(state='disabled')
                 default_data['equipe'] = "A"
+                default_data['equipe_id'] = 1
                 default_data['jour/soir'] = self.js.get()
 #-------------------------------login--------------------------------
     def login_system(self):
@@ -202,7 +222,7 @@ class window2:
         self.master = master
         self.master.title("Extrusion Stacker")
         self.master.geometry('1920x972')
-        self.master.resizable(0, 0)
+        #self.master.resizable(0, 0)
         icon(self.master)
         
         self.menu = Menu(self.master)
@@ -238,12 +258,20 @@ class window2:
         self.frame_weight.pack(side="left", padx=(15,0), pady=15)
 
         #Frame for buttons
-        self.frame_buttons = LabelFrame(self.master, text="  Machines  ", font=f2, padx=20, pady=40)
+        self.frame_buttons = LabelFrame(self.master, text="  Machines  ", font=f2, padx=40, pady=40)
         self.frame_buttons.pack(side='right', padx=(0,30))
 
         #Frame for labels
-        self.frame_labels = LabelFrame(self.master, text="Informations", font=f2, padx=20, pady=40, relief="flat")
-        self.frame_labels.pack(side='top', padx=(80,0), pady=15, fill="x")
+        self.frame_labels = LabelFrame(self.master, text="Informations", font=f2, padx=0, pady=40, relief="flat")
+        self.frame_labels.pack(side='top', padx=(5,0), pady=15, fill="x")
+        self.frame_inside_label1 = Frame(self.frame_labels)
+        self.frame_inside_label1.grid(row=0,column=0)
+        self.frame_inside_label2 = Frame(self.frame_labels)
+        self.frame_inside_label2.grid(row=1,column=0)
+        self.frame_inside_label3 = Frame(self.frame_labels)
+        self.frame_inside_label3.grid(row=2,column=0)
+        self.frame_inside_label4 = Frame(self.frame_labels)
+        self.frame_inside_label4.grid(row=3,column=0)
 
 #=====================================================================buttons for machines==========================
         # buttons for machines
@@ -254,6 +282,10 @@ class window2:
         self.color2 = ['G1', 'G2', 'G3', 'H1', 'H2','H3', 'I1', 'I2', 'I3', 'J1', 'J2', 'J3','J4']
         self.color3 = ['K1', 'K2', 'K3', 'K4', 'M1', 'M2', 'PP1', 'PP2']
         self.color4 = ['L1', 'L2', 'L3', 'L4']
+        self.machine_numb = ['A1', 'A2', 'A3', 'A4', 'B1', 'B2', 'B3', 'B4', 'C1', 'C2', 'D1',\
+            'D2', 'E1', 'E2', 'E3', 'F1', 'F2', 'F3', 'G1', 'G2', 'G3', 'H1', 'H2','H3', 'I1',\
+            'I2', 'I3', 'J1', 'J2', 'J3','J4', 'K1', 'K2', 'K3', 'K4', 'L1', 'L2', 'L3', 'L4',\
+            'M1', 'M2', 'PP1', 'PP2']
     
         self.A1 = Button(self.frame_buttons, text = "A1", font=f6, bg="goldenrod1",\
                     height=2, width=3, bd=3, command = lambda: self.click_machines("A1"))
@@ -481,16 +513,16 @@ class window2:
 
         # TreeView
         self.tree_weight = ttk.Treeview(self.frame_weight, height=22, style="mystyle1.Treeview", selectmode='browse')
-        self.tree_weight['columns']=("ID", "Article", "Poid")
+        self.tree_weight['columns']=("ID", "Article", "Poids")
         self.tree_weight.column('#0', width=0, stretch=NO)
         self.tree_weight.column('ID', anchor=CENTER, width=70)
         self.tree_weight.column('Article', anchor=CENTER, width=140)
-        self.tree_weight.column('Poid', anchor=CENTER, width=184)
+        self.tree_weight.column('Poids', anchor=CENTER, width=184)
 
         self.tree_weight.heading('#0', text='', anchor=CENTER)
         self.tree_weight.heading('ID', text='ID', anchor=CENTER)
         self.tree_weight.heading('Article', text='Article', anchor=CENTER)
-        self.tree_weight.heading('Poid', text='Poid', anchor=CENTER)
+        self.tree_weight.heading('Poids', text='Poids', anchor=CENTER)
 
         # scollbar
         self.scroll_y = Scrollbar(self.frame_weight, width=18, command=self.tree_weight.yview)
@@ -505,97 +537,92 @@ class window2:
         # to put the treeview, 'pack' function should be after all components of the treeview.
         self.tree_weight.pack(padx=2, pady=2)
 
-        
-        for n in range(1,100):
-            if n % 2 == 0:
-                self.tree_weight.insert('', 'end', values=(n, '05K/A', "{:.2f}" .format(13.5*(0.9+random()*0.2),2)), tags = ('odd',))
-            else:
-                self.tree_weight.insert('', 'end', values=(n, '05K/A', "{:.2f}" .format(13.5*(0.9+random()*0.2),2)), tags = ('even',))
-       
-        
-        # DB
-        rolls = []
-        for a in range(1,100):
-            rolls.append((a, '05K/A', "{:.2f}" .format(13.5*(0.9+random()*0.2),2)))
-
-        for i in range(len(rolls)):
-            if i % 2 == 0:
-                self.tree_weight.insert('', 'end', values=rolls[i], tags = ('odd',))
-            else:
-                self.tree_weight.insert('', 'end', values=rolls[i], tags = ('even',))
-
-
-
-        # labels in stacker========================================================
+        # labels in stacker====================
         self.article = StringVar()
 
-        self.label_date = Label(self.frame_labels, text="DATE",\
+        self.label_date = Label(self.frame_inside_label1, text="DATE",\
             font = f2).grid(row=0, column=0, sticky = 'w')
-        self.label_dot1 = Label(self.frame_labels, text=":",\
+        self.label_dot1 = Label(self.frame_inside_label1, text=":",\
             font = f2).grid(row=0, column=1, padx=(10,0))
 
-        self.label_Equipe = Label(self.frame_labels, text="EQUIPE", \
+        self.label_Equipe = Label(self.frame_inside_label1, text="EQUIPE", \
             font = f2).grid(row=1, column=0, sticky = 'w', pady=30)
-        self.label_dot2 = Label(self.frame_labels, text=":",\
+        self.label_dot2 = Label(self.frame_inside_label1, text=":",\
             font = f2).grid(row=1, column=1, padx=(10,0), pady=30)
 
-        self.label_machine = Label(self.frame_labels, text="MACHINE", \
+        self.label_machine = Label(self.frame_inside_label1, text="MACHINE", \
             font = f2).grid(row=2, column=0, sticky = 'w')
-        self.label_dot3 = Label(self.frame_labels, text=":",\
+        self.label_dot3 = Label(self.frame_inside_label1, text=":",\
             font = f2).grid(row=2, column=1, padx=(10,0))
 
-        self.label_production = Label(self.frame_labels, text="ID", \
+        self.label_production = Label(self.frame_inside_label1, text="ID", \
             font = f2).grid(row=3, column=0, sticky = 'w', pady=30)
-        self.label_dot4 = Label(self.frame_labels, text=":",\
+        self.label_dot4 = Label(self.frame_inside_label1, text=":",\
             font = f2).grid(row=3, column=1, padx=(10,0), pady=30)
 
-        self.label_article = Label(self.frame_labels, text="ARTICLE", \
+        self.label_article = Label(self.frame_inside_label1, text="ARTICLE", \
             font = f2).grid(row=4, column=0, sticky = 'w')
-        self.label_dot5 = Label(self.frame_labels, text=":",\
+        self.label_dot5 = Label(self.frame_inside_label1, text=":",\
             font = f2).grid(row=4, column=1, padx=(10,0))
-
-        articles=["","05K/A", "05NK/G","08D", "08NK/G"]
-        self.combo_article = ttk.Combobox(self.frame_labels, width=17, textvariable=self.article,\
-            values=articles,font = f2, state="readonly", justify="center")
+        self.combobox_list = []
+        self.combo_article = ttk.Combobox(self.frame_inside_label1, width=17, textvariable=self.article,\
+            font = f2, state="readonly", justify="center",\
+            postcommand = self.combobox_call_article)
         self.combo_article.grid(row=4, column=2, padx=20)
 
-        self.label_poid = Label(self.frame_labels, text="POID", \
+        self.label_poid = Label(self.frame_inside_label1, text="POIDS(kg)", \
             font = f2).grid(row=5, column=0, sticky = 'w', pady=30)
-        self.label_dot6 = Label(self.frame_labels, text=":",\
+        self.label_dot6 = Label(self.frame_inside_label1, text=":",\
             font = f2).grid(row=5, column=1, padx=(10,0), pady=30)
-        self.label_kg = Label(self.frame_labels, text="kg", \
-            font = f2).grid(row=5, column=3, pady=15)
 
         # Entry
-        self.ent_date = Entry(self.frame_labels, font = f2, width=18, bd=3,\
+        self.ent_date = Entry(self.frame_inside_label1, font = f2, width=18, bd=3,\
             justify='center', disabledbackground="lemon chiffon", disabledforeground="black")
         self.ent_date.grid(row=0, column=2)
         self.ent_date.insert(0, default_data.get("date"))
         self.ent_date.config(state='disabled')
 
-        self.ent_equipe = Entry(self.frame_labels, font = f2, width=18, bd=3,\
+        self.ent_equipe = Entry(self.frame_inside_label1, font = f2, width=18, bd=3,\
             justify='center', disabledbackground="lemon chiffon", disabledforeground="black")
         self.ent_equipe.grid(row=1, column=2, pady=30)
         self.ent_equipe.insert(0, default_data.get("equipe"))
         self.ent_equipe.config(state='disabled')
 
-        self.ent_machine = Entry(self.frame_labels, font = f2, width=18, bd=3,\
+        self.ent_machine = Entry(self.frame_inside_label1, font = f2, width=18, bd=3,\
             justify='center', state='disabled', disabledbackground="lemon chiffon",\
             disabledforeground="black")
         self.ent_machine.grid(row=2, column=2)
 
-        self.ent_id = Entry(self.frame_labels, font = f2, width=18, bd=3,\
+        self.ent_id = Entry(self.frame_inside_label1, font = f2, width=18, bd=3,\
             justify='center', state='disabled', disabledbackground="lemon chiffon",\
             disabledforeground="black")
         self.ent_id.grid(row=3, column=2, pady=30)
 
         self.poid_var = StringVar()
-        self.ent_weight = Entry(self.frame_labels, font = f2, width=18, bd=3,\
+        self.ent_weight = Entry(self.frame_inside_label1, font = f2, width=18, bd=3,\
             justify='center', textvariable=self.poid_var)
         self.ent_weight.grid(row=5, column=2, pady=15)
 
+        self.btn_correct_data = Button(self.frame_inside_label2, text = "modifier",font =f2, bd=3,\
+            state='disabled', width=8, command = lambda: self.add_roll('correct'))
+        self.btn_correct_data.grid(row=0,column=0)
+        self.btn_delete_data = Button(self.frame_inside_label2, text = "supprimer",font =f2, bd=3,\
+            state='disabled', width=8, command = lambda: self.add_roll('del'))
+        self.btn_delete_data.grid(row=0,column=1, padx=15)
+
+        self.btn_clear_data = Button(self.frame_inside_label2, text = "vider",font =f2, bd=3,\
+            width=8, command = self.vider)
+        self.btn_clear_data.grid(row=0,column=2)
+        self.btn_insert_data = Button(self.frame_inside_label2, text = "ajouter",font =f2, bd=3,\
+            width=8, command = lambda: self.add_roll('add'))
+        self.btn_insert_data.grid(row=0,column=3, padx= (15,0))
+
         # when choosing a thing of treeview
         def selecting(event):
+            self.btn_insert_data.config(state='disabled')
+            self.btn_correct_data.config(state='normal')
+            self.btn_delete_data.config(state='normal')
+
             for info in self.tree_weight.selection():
                 items = self.tree_weight.item(info)
                 self.ent_id.config(state='normal')
@@ -604,9 +631,20 @@ class window2:
                 self.ent_id.config(state='disabled')
                 self.ent_weight.delete(0, END)
                 self.ent_weight.insert(0, items['values'][2])
-                self.combo_article.set(items['values'][1])
-
+                self.combo_article.set(\
+                    (dbdb.lookup_articleID(conn(), items['values'][1])[0], items['values'][1]) )
         self.tree_weight.bind('<<TreeviewSelect>>', selecting)
+
+    def vider(self):
+        self.ent_id.config(state = 'normal')
+        self.ent_id.delete(0, 'end')
+        self.ent_id.config(state = 'disabled')
+        self.ent_weight.delete(0, 'end')
+        self.btn_insert_data.config(state='normal')
+        self.btn_correct_data.config(state='disabled')
+        self.btn_delete_data.config(state='disabled')
+        
+
 
     def access(self):
         self.master.destroy()
@@ -633,75 +671,137 @@ class window2:
         self.ent_machine.insert(0, group)
         self.ent_machine.config(state='disabled')
 
+        self.tree_weight.delete(*self.tree_weight.get_children())
+
+        equipe_id = default_data['equipe_id']
+        production_date = default_data["production_date"]
+        info_weights = bdbd.get_weights(conn2(), production_date, equipe_id, group)
+        for A in info_weights:
+            self.tree_weight.insert('', 'end', values = A)
+        art_update = bdbd.get_last_article(conn2(), production_date, equipe_id, group)
+        self.combo_article.set(   (art_update[1] , art_update[2])   )
+        self.ent_id.config(state = 'normal')
+        self.ent_id.delete(0, 'end')
+        self.ent_id.config(state = 'disabled')
+        self.ent_weight.delete(0, 'end')
+        self.btn_insert_data.config(state='normal')
+        self.btn_correct_data.config(state='disabled')
+        self.btn_delete_data.config(state='disabled')
+
     def setting_articles(self):
         import articles
         articles.a(self)
         #pop_article = Toplevel(self.master)
         #popup_articles(pop_article)
+    
+    def combobox_call_article(self):
+        list_cont = dbdb.get_listbox(conn(), 1)
+        self.combobox_list.clear()
+        for i in list_cont:
+            self.combobox_list.append(i)
+        self.combo_article.config(value = self.combobox_list)
 
-'''
-        self.articles = Toplevel(self.master)
-        self.articles.geometry('1000x720+455+100')
-        self.articles.title('Les articles')
+    def add_roll(self, sort):
+        def general_warn(self, msg):
+            warn_msg = Toplevel(self.master)
+            warn_msg.geometry("250x150+850+450")
+            warn_msg.title("Attention!")
+            msg = Label(warn_msg, text = msg, font=f5)
+            msg.pack(pady=(35,20))
+            msg_btn = Button(warn_msg, text = "OK", command = warn_msg.destroy, font = f5)
+            msg_btn.pack()
+            warn_msg.grab_set()
+
+        def filter_weight(self):
+            try:
+                weight_roll = self.ent_weight.get().strip()
+                print(weight_roll)
+                print(float(weight_roll))
+                weight = float(weight_roll)
+                return weight
+            except:
+                general_warn(self, 'mettre le poids correct.')
+                return
+
+        def get_machine(self):
+            try:
+                n = self.ent_machine.get()
+                n = self.machine_numb.index(n)
+                n = n + 1
+                return n
+            except:
+                general_warn(self, "choisir une machine.")
+                return
+
+        def time_now():
+            z = datetime.today()
+            return datetime.strftime(z, '%d/%m/%Y %H:%M:%S')
+
+        def vider_ent(self):
+            self.ent_id.config(state = 'normal')
+            self.ent_id.delete(0, 'end')
+            self.ent_id.config(state = 'disabled')
+            self.ent_weight.delete(0, 'end')
+            self.btn_insert_data.config(state='normal')
+            self.btn_correct_data.config(state='disabled')
+            self.btn_delete_data.config(state='disabled')            
         
-        # Frames =============
-        self.baseFrame = Frame(self.articles)
-        self.baseFrame.pack()
-
-        self.lblFrame_articles = LabelFrame(self.baseFrame, text="list des articles")
-        self.lblFrame_articles.grid(row=0, column=0)
-        self.lblFrame_modif = LabelFrame(self.baseFrame, text = "modification")
-        self.lblFrame_modif.grid(row=1, column=0)
-        self.lblFrame_enFab = LabelFrame(self.baseFrame, text = "en fabrication")
-        self.lblFrame_enFab.grid(row=2, column=0)
-        # Treeview============
-        self.tree_articles = ttk.Treeview(self.lblFrame_articles, height=22)
-        self.tree_articles['columns'] = ("article", "poid produit", "largeur", "longueur",\
-        "quantité(pcs)", "poid emballage", "poid sac", "épaisseur" , "poid 1m")
-        self.style_articles = ttk.Style()
-        self.style_articles.theme_use("default")
-        self.style_articles.configure("Treeview.Heading", font=f4)
-        self.style_articles.configure("mystyle.Treeview", rowwidth=10, font=f2)
-        self.style_articles.map("Treeview", background=[('selected', 'blue')])
-        self.tree_articles.pack()
-
-
-        self.articles.grab_set()
-
-class popup_articles:
-    def __init__(self, master):
-
-        self.master = master
-        self.master.geometry('1000x720+455+100')
-        self.master.title('Les articles')
-
-        self.baseFrame = Frame(self.master)
-        self.baseFrame.pack()
-        self.lblFrame_articles = LabelFrame(self.baseFrame, text="list des articles")
-        self.lblFrame_articles.grid(row=0, column=0)
-        self.lblFrame_modif = LabelFrame(self.baseFrame, text = "modification")
-        self.lblFrame_modif.grid(row=1, column=0)
-        self.lblFrame_enFab = LabelFrame(self.baseFrame, text = "en fabrication")
-        self.lblFrame_enFab.grid(row=2, column=0)
-
-        self.tree_articles = ttk.Treeview(self.lblFrame_articles, height=22)
-        self.tree_articles['columns'] = ("article", "poid produit", "largeur", "longueur",\
-            "quantité(pcs)", "poid emballage", "poid sac", "épaisseur" , "poid 1m")
-        self.style_articles = ttk.Style()
-        self.style_articles.theme_use("default")
-        self.style_articles.configure("Treeview.Heading", font=f4)
-        self.style_articles.configure("mystyle.Treeview", rowwidth=10, font=f2)
-        self.style_articles.map("Treeview", background=[('selected', 'blue')])
+        def update_tree(self, production_date, equipe_id, machine_num):
+            self.tree_weight.delete(*self.tree_weight.get_children())
+            info_weights = bdbd.get_weights(conn2(), production_date, equipe_id, machine_num)
+            for A in info_weights:
+                self.tree_weight.insert('', 'end', values = A)
         
-        self.tree_articles.pack()
+        def add_newdata(self):
+            try:
+                machine_id = get_machine(self)
+                if machine_id == None:
+                    return
 
+                article_id = self.article.get().split(" ")[0]
+                if article_id.isdigit() != True:
+                    general_warn(self, "sélectionner un article")
+                    return
+                article_id = int(article_id)
 
+                weight = filter_weight(self)
+                if weight == None:
+                    return
 
-        self.master.grab_set()
+                equipe_id = default_data['equipe_id']
+                production_date = default_data["production_date"]
 
-'''
+                bdbd.add_roll(conn2(), article_id, weight, machine_id,\
+                equipe_id, production_date, time_now(), '0', '0')
+                update_tree(self, production_date, equipe_id, self.ent_machine.get())
                 
+            except:
+                general_warn(self, 'vérifier les entrées.')
+                return
+        
+        if sort == 'add':
+            add_newdata(self)
 
+        elif sort == 'del':
+            bdbd.del_prod(conn2(), time_now(), '0',self.ent_id.get())
+            vider_ent(self)
+            equipe_id = default_data['equipe_id']
+            production_date = default_data["production_date"]
+            update_tree(self, production_date, equipe_id, self.ent_machine.get())
+
+        elif sort == 'correct':
+            compar = bdbd.comp_before_modif(conn2(), self.ent_id.get())
+            compar2 = filter_weight(self)
+
+            if str(compar[0]) != str(self.article.get()[0]) or str(compar[1]) != str(compar2) :
+                add_newdata(self)
+                bdbd.del_prod(conn2(), '0' ,time_now(), self.ent_id.get())
+                equipe_id = default_data['equipe_id']
+                production_date = default_data["production_date"]
+                update_tree(self, production_date, equipe_id, self.ent_machine.get())
+                vider_ent(self)
+            else:
+                general_warn(self, 'pas de changement.')
 
 
 if __name__ == '__main__':
