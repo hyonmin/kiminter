@@ -1,12 +1,8 @@
 from calendar import Calendar
-#from email.policy import default
 from tkinter import *
-#import tkinter.messagebox
 from tkinter import ttk
 import tkinter.ttk as ttk
-#from numpy import var
 from tkcalendar import Calendar
-from random import random
 from datetime import datetime, timedelta
 from PIL import ImageTk, Image
 import os
@@ -263,11 +259,11 @@ class window2:
 
         #Frame for labels
         self.frame_labels = LabelFrame(self.master, text="Informations", font=f2, padx=0, pady=40, relief="flat")
-        self.frame_labels.pack(side='top', padx=(5,0), pady=15, fill="x")
+        self.frame_labels.pack(side='top', padx=(100,0), pady=15, fill="x")
         self.frame_inside_label1 = Frame(self.frame_labels)
         self.frame_inside_label1.grid(row=0,column=0)
         self.frame_inside_label2 = Frame(self.frame_labels)
-        self.frame_inside_label2.grid(row=1,column=0)
+        self.frame_inside_label2.grid(row=1,column=0, padx=(135,0))
         self.frame_inside_label3 = Frame(self.frame_labels)
         self.frame_inside_label3.grid(row=2,column=0)
         self.frame_inside_label4 = Frame(self.frame_labels)
@@ -603,19 +599,21 @@ class window2:
             justify='center', textvariable=self.poid_var)
         self.ent_weight.grid(row=5, column=2, pady=15)
 
-        self.btn_correct_data = Button(self.frame_inside_label2, text = "modifier",font =f2, bd=3,\
-            state='disabled', width=8, command = lambda: self.add_roll('correct'))
-        self.btn_correct_data.grid(row=0,column=0)
-        self.btn_delete_data = Button(self.frame_inside_label2, text = "supprimer",font =f2, bd=3,\
-            state='disabled', width=8, command = lambda: self.add_roll('del'))
-        self.btn_delete_data.grid(row=0,column=1, padx=15)
-
         self.btn_clear_data = Button(self.frame_inside_label2, text = "vider",font =f2, bd=3,\
             width=8, command = self.vider)
-        self.btn_clear_data.grid(row=0,column=2)
+        self.btn_clear_data.grid(row=0,column=0)
         self.btn_insert_data = Button(self.frame_inside_label2, text = "ajouter",font =f2, bd=3,\
             width=8, command = lambda: self.add_roll('add'))
-        self.btn_insert_data.grid(row=0,column=3, padx= (15,0))
+        self.btn_insert_data.grid(row=0,column=1, padx=10)
+
+        self.btn_correct_data = Button(self.frame_inside_label2, text = "modifier",font =f2, bd=3,\
+            state='disabled', width=8, command = lambda: self.add_roll('correct'))
+        self.btn_correct_data.grid(row=1,column=0, pady =(30,0))
+        self.btn_delete_data = Button(self.frame_inside_label2, text = "supprimer",font =f2, bd=3,\
+            state='disabled', width=8, command = lambda: self.add_roll('del'))
+        self.btn_delete_data.grid(row=1,column=1, padx=10, pady =(30,0))
+
+        
 
         # when choosing a thing of treeview
         def selecting(event):

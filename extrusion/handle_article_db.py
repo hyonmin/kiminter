@@ -97,7 +97,11 @@ WHERE
 articles = ? AND deleted = ? AND modified = ?;"""
 
 def connect():
-    return sqlite3.connect('/home/pi/projects/extrusion/DB/extrusion.db')
+    import os
+    a = os.getcwd()
+    a = a + "/DB/extrusion.db"
+    return sqlite3.connect(a)
+    # return sqlite3.connect('/home/pi/projects/extrusion/DB/extrusion.db')
 
 
 def create_tables(connection):
