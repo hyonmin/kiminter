@@ -18,12 +18,19 @@ class k:
     def __init__(self, master):
         self.master = master        
         self.master.geometry('100x100')
+        a = True
+
 
         Button(self.master, text="click to test", command=self.goto).pack()
 
+
+        
+
+
+
     def goto(self):
-        import articles
-        articles.a(self)
+        import report_prod
+        report_prod.reports(self, 2, "02/03/2022")
 
 if __name__ == "__main__":
     main()

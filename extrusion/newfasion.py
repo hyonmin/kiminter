@@ -45,6 +45,22 @@ def conn2():
     bdbd.create_tables(connection)
     return connection
 
+def conn3():
+    connection = bdbd.connect()
+    bdbd.create_trash_bin(connection)
+    return connection
+
+def conn4():
+    connection = bdbd.connect()
+    bdbd.create_dechet_table(connection)
+    return connection
+
+def conn5():
+    connection = bdbd.connect()
+    bdbd.create_dechet_trash(connection)
+    return connection
+
+
 def main():
     root = Tk()
     window1(root)
@@ -234,8 +250,7 @@ class window2:
         # menu2, view
         self.menu_view = Menu(self.menu, tearoff=0)
         self.menu.add_cascade(label=" Recherche ", font=f7, menu = self.menu_view)
-        self.menu_view.add_command(label = "   Par article ", font=f5, command=None)
-        self.menu_view.add_command(label = "   Par machine ", font=f5, command=None)
+        self.menu_view.add_command(label = "   Par machine ", font=f5, command=self.reports)
 
         # menu3, about
         def message():
@@ -250,24 +265,33 @@ class window2:
         self.master.config(menu=self.menu)
 #=======================================================================frames=======================================
         #Frame for a treeview
-        self.frame_weight = LabelFrame(self.master, text=" List", font=f2, relief="flat")
+        self.frame_weight = LabelFrame(self.master, text="List", font=f2, relief="flat",\
+            labelanchor="n")
         self.frame_weight.pack(side="left", padx=(15,0), pady=15)
 
         #Frame for buttons
-        self.frame_buttons = LabelFrame(self.master, text="  Machines  ", font=f2, padx=40, pady=40)
+        self.frame_buttons = LabelFrame(self.master, text="  Machines  ",\
+            font=f2, padx=40, pady=40, labelanchor="n")
         self.frame_buttons.pack(side='right', padx=(0,30))
 
         #Frame for labels
-        self.frame_labels = LabelFrame(self.master, text="Informations", font=f2, padx=0, pady=40, relief="flat")
-        self.frame_labels.pack(side='top', padx=(100,0), pady=15, fill="x")
+        self.frame_labels = LabelFrame(self.master, text="  Informations  ",\
+            font=f2, padx=20, pady=39, labelanchor="n")
+        self.frame_labels.pack(side='top', padx=20, pady=16, fill="x")
+
         self.frame_inside_label1 = Frame(self.frame_labels)
         self.frame_inside_label1.grid(row=0,column=0)
         self.frame_inside_label2 = Frame(self.frame_labels)
-        self.frame_inside_label2.grid(row=1,column=0, padx=(135,0))
-        self.frame_inside_label3 = Frame(self.frame_labels)
-        self.frame_inside_label3.grid(row=2,column=0)
-        self.frame_inside_label4 = Frame(self.frame_labels)
-        self.frame_inside_label4.grid(row=3,column=0)
+        self.frame_inside_label2.grid(row=0,column=1, padx=(30,0), pady=(145,0))
+
+
+        self.frame_labels_dechet = LabelFrame(self.master, text="  DECHET  ",\
+            font=f2, padx=0, pady=19, labelanchor="n")
+        self.frame_labels_dechet.pack(side='top', padx=20, pady=16, fill="x")
+        self.frame_inside_label3 = Frame(self.frame_labels_dechet)
+        self.frame_inside_label3.pack(side='left')
+        self.frame_inside_label4 = Frame(self.frame_labels_dechet)
+        self.frame_inside_label4.pack(side='left', pady=(0,20))
 
 #=====================================================================buttons for machines==========================
         # buttons for machines
@@ -511,9 +535,9 @@ class window2:
         self.tree_weight = ttk.Treeview(self.frame_weight, height=22, style="mystyle1.Treeview", selectmode='browse')
         self.tree_weight['columns']=("ID", "Article", "Poids")
         self.tree_weight.column('#0', width=0, stretch=NO)
-        self.tree_weight.column('ID', anchor=CENTER, width=70)
-        self.tree_weight.column('Article', anchor=CENTER, width=140)
-        self.tree_weight.column('Poids', anchor=CENTER, width=184)
+        self.tree_weight.column('ID', anchor=CENTER, width=60)
+        self.tree_weight.column('Article', anchor=CENTER, width=110)
+        self.tree_weight.column('Poids', anchor=CENTER, width=140)
 
         self.tree_weight.heading('#0', text='', anchor=CENTER)
         self.tree_weight.heading('ID', text='ID', anchor=CENTER)
@@ -567,9 +591,9 @@ class window2:
         self.combo_article.grid(row=4, column=2, padx=20)
 
         self.label_poid = Label(self.frame_inside_label1, text="POIDS(kg)", \
-            font = f2).grid(row=5, column=0, sticky = 'w', pady=30)
+            font = f2).grid(row=5, column=0, sticky = 'w', pady=(30,0))
         self.label_dot6 = Label(self.frame_inside_label1, text=":",\
-            font = f2).grid(row=5, column=1, padx=(10,0), pady=30)
+            font = f2).grid(row=5, column=1, padx=(10,0), pady=(30,0))
 
         # Entry
         self.ent_date = Entry(self.frame_inside_label1, font = f2, width=18, bd=3,\
@@ -597,21 +621,77 @@ class window2:
         self.poid_var = StringVar()
         self.ent_weight = Entry(self.frame_inside_label1, font = f2, width=18, bd=3,\
             justify='center', textvariable=self.poid_var)
-        self.ent_weight.grid(row=5, column=2, pady=15)
+        self.ent_weight.grid(row=5, column=2, pady=(30,0))
 
-        self.btn_clear_data = Button(self.frame_inside_label2, text = "vider",font =f2, bd=3,\
-            width=8, command = self.vider)
-        self.btn_clear_data.grid(row=0,column=0)
-        self.btn_insert_data = Button(self.frame_inside_label2, text = "ajouter",font =f2, bd=3,\
-            width=8, command = lambda: self.add_roll('add'))
-        self.btn_insert_data.grid(row=0,column=1, padx=10)
-
-        self.btn_correct_data = Button(self.frame_inside_label2, text = "modifier",font =f2, bd=3,\
-            state='disabled', width=8, command = lambda: self.add_roll('correct'))
-        self.btn_correct_data.grid(row=1,column=0, pady =(30,0))
+        # buttons for add, delete, modify, clear
         self.btn_delete_data = Button(self.frame_inside_label2, text = "supprimer",font =f2, bd=3,\
             state='disabled', width=8, command = lambda: self.add_roll('del'))
-        self.btn_delete_data.grid(row=1,column=1, padx=10, pady =(30,0))
+        self.btn_delete_data.grid(row=0,column=0, pady=5)
+        self.btn_correct_data = Button(self.frame_inside_label2, text = "modifier",font =f2, bd=3,\
+            state='disabled', width=8, command = lambda: self.add_roll('correct'))
+        self.btn_correct_data.grid(row=1,column=0, pady=5)
+        
+        self.btn_clear_data = Button(self.frame_inside_label2, text = "vider",font =f2, bd=3,\
+            width=8, command = self.vider)
+        self.btn_clear_data.grid(row=2,column=0, pady=5)
+        self.btn_insert_data = Button(self.frame_inside_label2, text = "ajouter",font =f2, bd=3,\
+            width=8, command = lambda: self.add_roll('add'))
+        self.btn_insert_data.grid(row=3,column=0, pady=5)
+
+        # dechet
+        # style for column names
+        self.style_dechet = ttk.Style()
+        # style for the body of the treeview.
+        self.style_dechet.configure("dechet.Treeview", rowheight=31, font=f6)
+        self.style_dechet.map("dechet.Treeview", background=[('selected', 'blue')])
+        self.style_dechet.theme_use("default")
+        self.style_dechet.configure("dechet.Treeview.Heading", font=f4)
+
+        self.tree_dechet = ttk.Treeview(self.frame_inside_label3, height=10, style="dechet.Treeview", selectmode='browse')
+        self.tree_dechet['columns']=("ID", "Noir/Blanc", "Poids")
+        self.tree_dechet.column('#0', width=0, stretch=NO)
+        self.tree_dechet.column('ID', anchor=CENTER, width=60)
+        self.tree_dechet.column('Noir/Blanc', anchor=CENTER, width=130)
+        self.tree_dechet.column('Poids', anchor=CENTER, width=140)
+
+        self.tree_dechet.heading('#0', text='', anchor=CENTER)
+        self.tree_dechet.heading('ID', text='ID', anchor=CENTER)
+        self.tree_dechet.heading('Noir/Blanc', text='Noir/Blanc', anchor=CENTER)
+        self.tree_dechet.heading('Poids', text='Poids', anchor=CENTER)
+
+        # scollbar
+        self.scroll_y_dechet = Scrollbar(self.frame_inside_label3, width=18, command=self.tree_dechet.yview)
+        self.tree_dechet.configure(yscroll = self.scroll_y_dechet.set)
+        self.scroll_y_dechet.pack(side=RIGHT, fill=Y, pady=9)
+
+        self.tree_dechet.pack(padx=2, pady=9)
+
+        self.BN = IntVar()
+        self.ID = IntVar()
+        self.blanc = Checkbutton(self.frame_inside_label4, text = "Blanc", variable = self.BN,\
+            onvalue = 0, font =f2)
+        self.blanc.grid(row=0, column=0, pady=20, padx=30)
+        self.noir = Checkbutton(self.frame_inside_label4, text = "Noir", variable = self.BN,\
+            onvalue = 1, font= f2, pady=30)
+        self.noir.grid(row=0, column=1)
+
+        self.lbl_dechet = Label(self.frame_inside_label4, text = "POIDS(kg): ", font = f2)
+        self.lbl_dechet.grid(row=1, column=0, padx=(20,0))
+        self.ent_dechet = Entry(self.frame_inside_label4, font = f2, width=10, bd=3,\
+            justify='center')
+        self.ent_dechet.grid(row=1,column=1)
+
+        self.btn_delete_dechet = Button(self.frame_inside_label4, text = "supprimer",font =f2, bd=3,\
+            state='disabled', width=8, command = lambda: self.add_dechet('del'))
+        self.btn_delete_dechet.grid(row=2,column=0)
+
+        self.btn_insert_dechet = Button(self.frame_inside_label4, text = "ajouter",font =f2, bd=3,\
+            width=8, command = lambda: self.add_dechet('add'))
+        self.btn_insert_dechet.grid(row=2,column=1, pady= 30)
+
+        self.btn_clear_dechet = Button(self.frame_inside_label4, text = "vider",font =f2, bd=3,\
+            width=8, command = self.vider_dechet)
+        self.btn_clear_dechet.grid(row=3,column=1)
 
         
 
@@ -633,6 +713,19 @@ class window2:
                     (dbdb.lookup_articleID(conn(), items['values'][1])[0], items['values'][1]) )
         self.tree_weight.bind('<<TreeviewSelect>>', selecting)
 
+        def select_dechet(event):
+            self.btn_insert_dechet.config(state='disabled')
+            self.btn_delete_dechet.config(state='normal')
+            for info in self.tree_dechet.selection():
+                items = self.tree_dechet.item(info)
+                self.ID = items['values'][0]
+                self.ent_dechet.insert(0, items['values'][2])
+                
+        self.tree_dechet.bind('<<TreeviewSelect>>', select_dechet)
+
+
+
+
     def vider(self):
         self.ent_id.config(state = 'normal')
         self.ent_id.delete(0, 'end')
@@ -641,8 +734,18 @@ class window2:
         self.btn_insert_data.config(state='normal')
         self.btn_correct_data.config(state='disabled')
         self.btn_delete_data.config(state='disabled')
-        
 
+    def vider_dechet(self):
+        self.ent_dechet.delete(0, 'end')
+        self.btn_insert_dechet.config(state='normal')
+        self.btn_delete_dechet.config(state='disabled')
+
+    
+    def reports(self):
+        equipe_id = default_data['equipe_id']
+        production_date = default_data["production_date"]
+        import report_prod
+        report_prod.reports(self, equipe_id, production_date) 
 
     def access(self):
         self.master.destroy()
@@ -685,6 +788,11 @@ class window2:
         self.btn_insert_data.config(state='normal')
         self.btn_correct_data.config(state='disabled')
         self.btn_delete_data.config(state='disabled')
+
+        self.tree_dechet.delete(*self.tree_dechet.get_children())
+        info_dechet = bdbd.info_dechet(conn4(), production_date, equipe_id, group)
+        for b in info_dechet:
+            self.tree_dechet.insert('', 'end', values = b)
 
     def setting_articles(self):
         import articles
@@ -770,9 +878,9 @@ class window2:
                 production_date = default_data["production_date"]
 
                 bdbd.add_roll(conn2(), article_id, weight, machine_id,\
-                equipe_id, production_date, time_now(), '0', '0')
+                equipe_id, production_date, time_now())
                 update_tree(self, production_date, equipe_id, self.ent_machine.get())
-                
+                vider_ent(self)
             except:
                 general_warn(self, 'vérifier les entrées.')
                 return
@@ -781,25 +889,145 @@ class window2:
             add_newdata(self)
 
         elif sort == 'del':
-            bdbd.del_prod(conn2(), time_now(), '0',self.ent_id.get())
-            vider_ent(self)
-            equipe_id = default_data['equipe_id']
-            production_date = default_data["production_date"]
-            update_tree(self, production_date, equipe_id, self.ent_machine.get())
-
-        elif sort == 'correct':
-            compar = bdbd.comp_before_modif(conn2(), self.ent_id.get())
-            compar2 = filter_weight(self)
-
-            if str(compar[0]) != str(self.article.get()[0]) or str(compar[1]) != str(compar2) :
-                add_newdata(self)
-                bdbd.del_prod(conn2(), '0' ,time_now(), self.ent_id.get())
+            try:
+                collect_trash = bdbd.move_to_trash1(conn2(), self.ent_id.get())
+                collect_trash = list(collect_trash[0])
+                collect_trash.append('0')
+                collect_trash.append(time_now())
+                
+                bdbd.move_to_trash2(conn3(), collect_trash)
+                bdbd.delete_roll(conn2(), self.ent_id.get())
+                vider_ent(self)
                 equipe_id = default_data['equipe_id']
                 production_date = default_data["production_date"]
                 update_tree(self, production_date, equipe_id, self.ent_machine.get())
-                vider_ent(self)
+            except:
+                general_warn("erreur(del)")
+                return
+
+        elif sort == 'correct':
+            try:
+                compar = bdbd.comp_before_modif(conn2(), self.ent_id.get())
+                compar2 = filter_weight(self)
+
+                if str(compar[0]) != str(self.article.get()[0]) or str(compar[1]) != str(compar2) :
+                    collect_trash = bdbd.move_to_trash1(conn2(), self.ent_id.get())
+                    collect_trash = list(collect_trash[0])
+                    collect_trash.append(time_now())
+                    collect_trash.append('0')
+                    print(collect_trash)
+
+                    bdbd.move_to_trash2(conn3(), collect_trash)
+                    
+                    bdbd.modify(conn2(), self.article.get()[0], filter_weight(self), time_now(), self.ent_id.get())
+
+                    equipe_id = default_data['equipe_id']
+                    production_date = default_data["production_date"]
+                    update_tree(self, production_date, equipe_id, self.ent_machine.get())
+                    vider_ent(self)
+                else:
+                    general_warn(self, 'pas de changement.')
+            except:
+                general_warn("erreur(correct)")
+                return
+
+    # dechet
+    def add_dechet(self, sort):
+        def general_warn(self, msg):
+            warn_msg = Toplevel(self.master)
+            warn_msg.geometry("250x150+850+450")
+            warn_msg.title("Attention!")
+            msg = Label(warn_msg, text = msg, font=f5)
+            msg.pack(pady=(35,20))
+            msg_btn = Button(warn_msg, text = "OK", command = warn_msg.destroy, font = f5)
+            msg_btn.pack()
+            warn_msg.grab_set()
+
+        def time_now():
+            z = datetime.today()
+            return datetime.strftime(z, '%d/%m/%Y %H:%M:%S')
+
+        def get_machine(self):
+            try:
+                n = self.ent_machine.get()
+                n = self.machine_numb.index(n)
+                n = n + 1
+                return n
+            except:
+                general_warn(self, "choisir une machine.")
+                return
+
+        def filter_weight(self):
+            try:
+                weight_dechet = self.ent_dechet.get().strip()
+                print(weight_dechet)
+                print(float(weight_dechet))
+                weight = float(weight_dechet)
+                return weight
+            except:
+                general_warn(self, 'mettre le poids correct.')
+                return
+
+        def update_tree(self, production_date, equipe_id, machine_num):
+            self.tree_dechet.delete(*self.tree_dechet.get_children())
+            info_dechet = bdbd.info_dechet(conn4(), production_date, equipe_id, machine_num)
+            for b in info_dechet:
+                self.tree_dechet.insert('', 'end', values = b)
+
+        def vider_ent_dechet(self):
+            self.ent_dechet.delete(0, 'end')
+            self.btn_delete_dechet.config(state='disabled')
+            self.btn_insert_dechet.config(state='normal')
+
+        
+        def dechet(self):
+            #try:
+            machine_id = get_machine(self)
+            if machine_id == None:
+                return
+            article_id = self.article.get().split(" ")[0]
+            if article_id.isdigit() != True:
+                general_warn(self, "sélectionner un article")
+                return
+            article_id = int(article_id)
+
+            print("a")
+            print(self.BN)
+
+            if self.BN.get() == 0:
+                noirblanc = 'blanc'
             else:
-                general_warn(self, 'pas de changement.')
+                noirblanc = 'noir'
+
+            weight = filter_weight(self)
+            if weight == None:
+                return
+            equipe_id = default_data['equipe_id']
+            production_date = default_data["production_date"]
+
+            bdbd.add_dechet(conn4(), article_id, weight, noirblanc, machine_id,\
+                equipe_id, production_date, time_now())
+
+            update_tree(self, production_date, equipe_id, self.ent_machine.get())
+            vider_ent_dechet(self)
+            #except:
+            #    general_warn(self, 'vérifier les entrées.')
+            #    return
+
+        if sort == "add":
+            dechet(self)
+
+        elif sort == 'del':
+            dechet_trash = bdbd.move_to_trash_dechet1(conn4(), self.ID)
+            dechet_trash = list(dechet_trash[0])
+            dechet_trash.append(time_now())
+
+            bdbd.move_to_trash_dechet2(conn5(), dechet_trash)
+            bdbd.del_dechet(conn4(), self.ID)
+            vider_ent_dechet(self)
+            equipe_id = default_data['equipe_id']
+            production_date = default_data["production_date"]
+            update_tree(self, production_date, equipe_id, self.ent_machine.get())
 
 
 if __name__ == '__main__':
